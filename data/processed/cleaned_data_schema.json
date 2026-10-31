@@ -1,0 +1,167 @@
+{
+  "order_id": {
+    "dtype": "str",
+    "role": "row_identifier (never a feature)",
+    "missing": 0
+  },
+  "delivery_person_id": {
+    "dtype": "str",
+    "role": "identifier (raw value never a feature; city prefix is Tier A)",
+    "missing": 0
+  },
+  "delivery_person_age": {
+    "dtype": "float64",
+    "role": "feature Tier B (rider assignment)",
+    "missing": 1945
+  },
+  "delivery_person_rating": {
+    "dtype": "float64",
+    "role": "feature Tier B (rider assignment; leakage risk)",
+    "missing": 1999
+  },
+  "restaurant_lat": {
+    "dtype": "float64",
+    "role": "feature Tier A (order placement)",
+    "missing": 3640
+  },
+  "restaurant_lon": {
+    "dtype": "float64",
+    "role": "feature Tier A (order placement)",
+    "missing": 3640
+  },
+  "delivery_lat": {
+    "dtype": "float64",
+    "role": "feature Tier A (order placement)",
+    "missing": 3640
+  },
+  "delivery_lon": {
+    "dtype": "float64",
+    "role": "feature Tier A (order placement)",
+    "missing": 3640
+  },
+  "order_date": {
+    "dtype": "str",
+    "role": "feature Tier A (order placement)",
+    "missing": 0
+  },
+  "order_time": {
+    "dtype": "str",
+    "role": "feature Tier A (order placement)",
+    "missing": 1731
+  },
+  "order_datetime": {
+    "dtype": "datetime64[us]",
+    "role": "feature Tier A (order placement); chronological split key",
+    "missing": 1731
+  },
+  "pickup_time": {
+    "dtype": "str",
+    "role": "Tier C (pickup) \u2014 EXCLUDED from order-placement models",
+    "missing": 0
+  },
+  "pickup_datetime": {
+    "dtype": "datetime64[us]",
+    "role": "Tier C (pickup) \u2014 EXCLUDED from order-placement models",
+    "missing": 0
+  },
+  "weather": {
+    "dtype": "str",
+    "role": "feature Tier A* (placement only if from a live feed)",
+    "missing": 616
+  },
+  "traffic_density": {
+    "dtype": "str",
+    "role": "feature Tier A* (placement only if from a live feed)",
+    "missing": 601
+  },
+  "vehicle_condition": {
+    "dtype": "Int64",
+    "role": "feature Tier B (rider assignment)",
+    "missing": 0
+  },
+  "order_type": {
+    "dtype": "str",
+    "role": "feature Tier A (order placement)",
+    "missing": 0
+  },
+  "vehicle_type": {
+    "dtype": "str",
+    "role": "feature Tier B (rider assignment)",
+    "missing": 0
+  },
+  "multiple_deliveries": {
+    "dtype": "Int64",
+    "role": "feature Tier B (dispatch; leakage risk)",
+    "missing": 993
+  },
+  "festival": {
+    "dtype": "str",
+    "role": "feature Tier A (order placement)",
+    "missing": 228
+  },
+  "city_type": {
+    "dtype": "str",
+    "role": "feature Tier A (order placement)",
+    "missing": 1200
+  },
+  "time_taken_min": {
+    "dtype": "int64",
+    "role": "TARGET (never a feature)",
+    "missing": 0
+  },
+  "restaurant_lat_raw": {
+    "dtype": "float64",
+    "role": "audit: original value (never a feature)",
+    "missing": 0
+  },
+  "restaurant_lon_raw": {
+    "dtype": "float64",
+    "role": "audit: original value (never a feature)",
+    "missing": 0
+  },
+  "delivery_lat_raw": {
+    "dtype": "float64",
+    "role": "audit: original value (never a feature)",
+    "missing": 0
+  },
+  "delivery_lon_raw": {
+    "dtype": "float64",
+    "role": "audit: original value (never a feature)",
+    "missing": 0
+  },
+  "delivery_person_age_raw": {
+    "dtype": "float64",
+    "role": "audit: original value (never a feature)",
+    "missing": 1854
+  },
+  "delivery_person_rating_raw": {
+    "dtype": "float64",
+    "role": "audit: original value (never a feature)",
+    "missing": 1908
+  },
+  "dq_restaurant_sign_corrected": {
+    "dtype": "bool",
+    "role": "data-quality flag (never a feature)",
+    "missing": 0
+  },
+  "dq_geo_valid": {
+    "dtype": "bool",
+    "role": "data-quality flag (never a feature); filter for geo work",
+    "missing": 0
+  },
+  "dq_rider_sentinel": {
+    "dtype": "bool",
+    "role": "data-quality flag (never a feature)",
+    "missing": 0
+  },
+  "dq_pickup_midnight_rollover": {
+    "dtype": "bool",
+    "role": "data-quality flag (never a feature)",
+    "missing": 0
+  },
+  "dq_pickup_day_assumed": {
+    "dtype": "bool",
+    "role": "data-quality flag (never a feature)",
+    "missing": 0
+  }
+}

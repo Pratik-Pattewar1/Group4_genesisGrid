@@ -1,0 +1,224 @@
+{
+  "run_date": "2026-10-31",
+  "rows_in": 45593,
+  "rows_out": 45593,
+  "cols_out": 32,
+  "primary_features": [
+    "distance_km",
+    "restaurant_lat",
+    "restaurant_lon",
+    "order_hour",
+    "order_hour_sin",
+    "order_hour_cos",
+    "order_day_of_month",
+    "order_is_weekend",
+    "city_type",
+    "order_type",
+    "festival",
+    "order_time_band",
+    "order_day_of_week",
+    "order_month"
+  ],
+  "primary_numeric": [
+    "distance_km",
+    "restaurant_lat",
+    "restaurant_lon",
+    "order_hour",
+    "order_hour_sin",
+    "order_hour_cos",
+    "order_day_of_month",
+    "order_is_weekend"
+  ],
+  "primary_categorical": [
+    "city_type",
+    "order_type",
+    "festival",
+    "order_time_band",
+    "order_day_of_week",
+    "order_month"
+  ],
+  "excluded_by_decision": [
+    "delivery_person_age",
+    "delivery_person_rating",
+    "vehicle_condition",
+    "vehicle_type",
+    "multiple_deliveries",
+    "weather",
+    "traffic_density",
+    "city_code"
+  ],
+  "encoded_width": 31,
+  "missing": {
+    "order_id": 0,
+    "order_date": 0,
+    "order_datetime": 1731,
+    "time_taken_min": 0,
+    "distance_km": 3640,
+    "city_code": 0,
+    "order_hour": 1731,
+    "order_hour_sin": 1731,
+    "order_hour_cos": 1731,
+    "order_time_band": 1731,
+    "order_day_of_week": 0,
+    "order_day_of_month": 0,
+    "order_month": 0,
+    "order_is_weekend": 0,
+    "restaurant_lat": 3640,
+    "restaurant_lon": 3640,
+    "delivery_lat": 3640,
+    "delivery_lon": 3640,
+    "city_type": 1200,
+    "order_type": 0,
+    "festival": 228,
+    "delivery_person_age": 1945,
+    "delivery_person_rating": 1999,
+    "vehicle_condition": 0,
+    "vehicle_type": 0,
+    "multiple_deliveries": 993,
+    "weather": 616,
+    "traffic_density": 601,
+    "dq_geo_valid": 0,
+    "dq_restaurant_sign_corrected": 0,
+    "dq_rider_sentinel": 0,
+    "dq_pickup_day_assumed": 0
+  },
+  "split": {
+    "cut": "2022-03-30",
+    "train": 37123,
+    "test": 8470
+  },
+  "checks": [
+    {
+      "check": "row count preserved",
+      "passed": true,
+      "detail": "45,593"
+    },
+    {
+      "check": "order_id identical and in the same order",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "target carried unchanged",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "every output column documented in feature dictionary",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "primary feature set passes leakage guard",
+      "passed": true,
+      "detail": "14 features"
+    },
+    {
+      "check": "guard rejects every forbidden / excluded column",
+      "passed": true,
+      "detail": "30 tested; escaped: none"
+    },
+    {
+      "check": "get_model_inputs returns only primary features",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no primary feature overlaps excluded/forbidden lists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "features unchanged when target is shuffled (no target dependence)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no numeric feature is a near-copy of the target (|Spearman| < 0.9)",
+      "passed": true,
+      "detail": "max 0.319 (distance_km)"
+    },
+    {
+      "check": "distance_km missing exactly where geo-invalid",
+      "passed": true,
+      "detail": "missing 3,640"
+    },
+    {
+      "check": "distance_km within (0, 25] km on valid rows",
+      "passed": true,
+      "detail": "min 1.47, max 20.97"
+    },
+    {
+      "check": "hour features missing exactly on the 1,731 missing-timestamp rows",
+      "passed": true,
+      "detail": "1,731 rows"
+    },
+    {
+      "check": "order_hour matches order_time (0 is a real hour, not a fill)",
+      "passed": true,
+      "detail": "hour-0 rows: 430"
+    },
+    {
+      "check": "date features complete for all rows",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "weekend flag consistent with day of week",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "missing counts of all carried columns unchanged (nothing filled)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "age, rating and coordinates still missing as in cleaned data",
+      "passed": true,
+      "detail": "delivery_person_age 1,945, delivery_person_rating 1,999, restaurant_lat 3,640"
+    },
+    {
+      "check": "no pickup-derived column present",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "city_code parsed for every row (22 codes)",
+      "passed": true,
+      "detail": "22 codes"
+    },
+    {
+      "check": "chronological split on whole dates (all train dates < all test dates)",
+      "passed": true,
+      "detail": "cut 2022-03-30; train 37,123 / test 8,470"
+    },
+    {
+      "check": "imputer statistics equal TRAIN medians",
+      "passed": true,
+      "detail": "differs from full-data medians on 3 feature(s)"
+    },
+    {
+      "check": "one-hot categories learned from TRAIN levels only",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "transform on test runs without NaN/inf (unseen levels ignored)",
+      "passed": true,
+      "detail": "31 encoded columns"
+    },
+    {
+      "check": "_unseen_test_levels",
+      "passed": true,
+      "detail": "{\"order_month\": [\"4\"]}"
+    }
+  ],
+  "checks_passed": 24,
+  "checks_total": 24,
+  "deterministic": true,
+  "output_sha256": "86f90becbb69ce664d107bfee8d5d3542eadec4b2729770ed7d69e94d7c00421",
+  "clean_sha256": "3f2f1ee971632876fe41d09da8fc35a618303b5f945cdd1816c63e6a2047bcfa",
+  "raw_unchanged": true,
+  "clean_unchanged": true
+}

@@ -1,0 +1,164 @@
+{
+  "n_missing": 1731,
+  "pct_missing": 3.8,
+  "order_date_missing": 0,
+  "by_date": {
+    "dates": 44,
+    "dates_with_zero_missing": 0,
+    "min_rate_pct": 2.7,
+    "max_rate_pct": 5.18
+  },
+  "by_month": {
+    "2022-02": {
+      "missing": 272,
+      "rate_pct": 3.76
+    },
+    "2022-03": {
+      "missing": 1223,
+      "rate_pct": 3.82
+    },
+    "2022-04": {
+      "missing": 236,
+      "rate_pct": 3.71
+    }
+  },
+  "by_weekday_p": 0.5401855518637935,
+  "chi2_p": {
+    "city_code": 0.708435883174544,
+    "city_type": 0.3572644118173648,
+    "weather": 0.0,
+    "traffic_density": 0.0,
+    "festival": 0.6736424693433046,
+    "multiple_deliveries": 0.059741968105939756,
+    "vehicle_type": 0.0,
+    "vehicle_condition": 0.0,
+    "order_type": 0.9774398876491219
+  },
+  "target": {
+    "missing": {
+      "count": 1731.0,
+      "mean": 26.31,
+      "std": 9.64,
+      "min": 10.0,
+      "25%": 19.0,
+      "50%": 25.0,
+      "75%": 32.0,
+      "max": 54.0
+    },
+    "present": {
+      "count": 43862.0,
+      "mean": 26.29,
+      "std": 9.37,
+      "min": 10.0,
+      "25%": 19.0,
+      "50%": 26.0,
+      "75%": 32.0,
+      "max": 54.0
+    },
+    "mann_whitney_p": 0.778841507396588,
+    "ks_p": 0.8405345245722828,
+    "late_gt30_pct": {
+      "missing": 30.16,
+      "present": 29.83
+    }
+  },
+  "co_missing": {
+    "delivery_person_age_raw": {
+      "missing_in_block": 1640,
+      "missing_total": 1854
+    },
+    "delivery_person_rating_raw": {
+      "missing_in_block": 1640,
+      "missing_total": 1908
+    },
+    "weather": {
+      "missing_in_block": 616,
+      "missing_total": 616
+    },
+    "traffic_density": {
+      "missing_in_block": 601,
+      "missing_total": 601
+    },
+    "multiple_deliveries": {
+      "missing_in_block": 50,
+      "missing_total": 993
+    },
+    "festival": {
+      "missing_in_block": 9,
+      "missing_total": 228
+    },
+    "city_type": {
+      "missing_in_block": 56,
+      "missing_total": 1200
+    }
+  },
+  "block_contains_all": {
+    "vehicle_condition_3": [
+      520,
+      520
+    ],
+    "bicycle": [
+      68,
+      68
+    ],
+    "rider_sentinel": [
+      91,
+      91
+    ]
+  },
+  "geo_invalid_in_block": 131,
+  "recovery": {
+    "raw_columns": [
+      "ID",
+      "Delivery_person_ID",
+      "Delivery_person_Age",
+      "Delivery_person_Ratings",
+      "Restaurant_latitude",
+      "Restaurant_longitude",
+      "Delivery_location_latitude",
+      "Delivery_location_longitude",
+      "Order_Date",
+      "Time_Orderd",
+      "Time_Order_picked",
+      "Weatherconditions",
+      "Road_traffic_density",
+      "Vehicle_condition",
+      "Type_of_order",
+      "Type_of_vehicle",
+      "multiple_deliveries",
+      "Festival",
+      "City",
+      "Time_taken(min)"
+    ],
+    "order_date_complete": true,
+    "hex_id_spearman_vs_datetime": -0.4,
+    "hex_id_spearman_vs_hour": 0.011,
+    "row_order_spearman_vs_datetime": 0.0016,
+    "peer_same_id_date_rows": 31226,
+    "peer_exact_time_match_pct": 0.8,
+    "traffic_hour_band_consistency_pct": 97.48,
+    "traffic_distinct_times_per_level": {
+      "High": 44,
+      "Jam": 33,
+      "Low": 55,
+      "Medium": 44
+    },
+    "block_rows_with_traffic": 1130,
+    "block_traffic_counts": {
+      "Low": 415,
+      "Jam": 343,
+      "Medium": 269,
+      "High": 103
+    },
+    "weather_max_share_any_hour": 0.189
+  },
+  "example_split_80pct_date": {
+    "cut_date": "2022-03-29",
+    "train_missing": 1414,
+    "train_rate_pct": 3.81,
+    "test_missing": 317,
+    "test_rate_pct": 3.74
+  },
+  "raw_unchanged": true,
+  "cleaned_sha256": "3f2f1ee971632876fe41d09da8fc35a618303b5f945cdd1816c63e6a2047bcfa"
+}

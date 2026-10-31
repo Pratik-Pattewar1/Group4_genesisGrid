@@ -1,0 +1,964 @@
+{
+  "shape": {
+    "rows": 45593,
+    "cols": 20
+  },
+  "columns": [
+    "ID",
+    "Delivery_person_ID",
+    "Delivery_person_Age",
+    "Delivery_person_Ratings",
+    "Restaurant_latitude",
+    "Restaurant_longitude",
+    "Delivery_location_latitude",
+    "Delivery_location_longitude",
+    "Order_Date",
+    "Time_Orderd",
+    "Time_Order_picked",
+    "Weatherconditions",
+    "Road_traffic_density",
+    "Vehicle_condition",
+    "Type_of_order",
+    "Type_of_vehicle",
+    "multiple_deliveries",
+    "Festival",
+    "City",
+    "Time_taken(min)"
+  ],
+  "format": [
+    {
+      "column": "ID",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 45593,
+      "text_missing_tokens": 0,
+      "missing_pct": 0.0,
+      "n_unique_raw": 45593
+    },
+    {
+      "column": "Delivery_person_ID",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 45593,
+      "text_missing_tokens": 0,
+      "missing_pct": 0.0,
+      "n_unique_raw": 1320
+    },
+    {
+      "column": "Delivery_person_Age",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 1854,
+      "text_missing_tokens": 1854,
+      "missing_pct": 4.07,
+      "n_unique_raw": 23
+    },
+    {
+      "column": "Delivery_person_Ratings",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 1908,
+      "text_missing_tokens": 1908,
+      "missing_pct": 4.18,
+      "n_unique_raw": 29
+    },
+    {
+      "column": "Restaurant_latitude",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 0,
+      "text_missing_tokens": 0,
+      "missing_pct": 0.0,
+      "n_unique_raw": 658
+    },
+    {
+      "column": "Restaurant_longitude",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 0,
+      "text_missing_tokens": 0,
+      "missing_pct": 0.0,
+      "n_unique_raw": 519
+    },
+    {
+      "column": "Delivery_location_latitude",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 0,
+      "text_missing_tokens": 0,
+      "missing_pct": 0.0,
+      "n_unique_raw": 4373
+    },
+    {
+      "column": "Delivery_location_longitude",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 0,
+      "text_missing_tokens": 0,
+      "missing_pct": 0.0,
+      "n_unique_raw": 4373
+    },
+    {
+      "column": "Order_Date",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 0,
+      "text_missing_tokens": 0,
+      "missing_pct": 0.0,
+      "n_unique_raw": 44
+    },
+    {
+      "column": "Time_Orderd",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 1731,
+      "text_missing_tokens": 1731,
+      "missing_pct": 3.8,
+      "n_unique_raw": 177
+    },
+    {
+      "column": "Time_Order_picked",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 0,
+      "text_missing_tokens": 0,
+      "missing_pct": 0.0,
+      "n_unique_raw": 193
+    },
+    {
+      "column": "Weatherconditions",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 0,
+      "text_missing_tokens": 616,
+      "missing_pct": 1.35,
+      "n_unique_raw": 7
+    },
+    {
+      "column": "Road_traffic_density",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 45593,
+      "text_missing_tokens": 601,
+      "missing_pct": 1.32,
+      "n_unique_raw": 5
+    },
+    {
+      "column": "Vehicle_condition",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 0,
+      "text_missing_tokens": 0,
+      "missing_pct": 0.0,
+      "n_unique_raw": 4
+    },
+    {
+      "column": "Type_of_order",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 45593,
+      "text_missing_tokens": 0,
+      "missing_pct": 0.0,
+      "n_unique_raw": 4
+    },
+    {
+      "column": "Type_of_vehicle",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 45593,
+      "text_missing_tokens": 0,
+      "missing_pct": 0.0,
+      "n_unique_raw": 4
+    },
+    {
+      "column": "multiple_deliveries",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 993,
+      "text_missing_tokens": 993,
+      "missing_pct": 2.18,
+      "n_unique_raw": 5
+    },
+    {
+      "column": "Festival",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 45593,
+      "text_missing_tokens": 228,
+      "missing_pct": 0.5,
+      "n_unique_raw": 3
+    },
+    {
+      "column": "City",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 45593,
+      "text_missing_tokens": 1200,
+      "missing_pct": 2.63,
+      "n_unique_raw": 4
+    },
+    {
+      "column": "Time_taken(min)",
+      "pandas_isna": 0,
+      "trailing_or_leading_ws": 0,
+      "text_missing_tokens": 0,
+      "missing_pct": 0.0,
+      "n_unique_raw": 45
+    }
+  ],
+  "missing": [
+    {
+      "column": "Delivery_person_Ratings",
+      "missing": 1908,
+      "pct": 4.18
+    },
+    {
+      "column": "Delivery_person_Age",
+      "missing": 1854,
+      "pct": 4.07
+    },
+    {
+      "column": "Time_Orderd",
+      "missing": 1731,
+      "pct": 3.8
+    },
+    {
+      "column": "City",
+      "missing": 1200,
+      "pct": 2.63
+    },
+    {
+      "column": "multiple_deliveries",
+      "missing": 993,
+      "pct": 2.18
+    },
+    {
+      "column": "Weatherconditions",
+      "missing": 616,
+      "pct": 1.35
+    },
+    {
+      "column": "Road_traffic_density",
+      "missing": 601,
+      "pct": 1.32
+    },
+    {
+      "column": "Festival",
+      "missing": 228,
+      "pct": 0.5
+    }
+  ],
+  "rows_any_missing": 4225,
+  "missing_cooccurrence": {
+    "Delivery_person_Ratings": {
+      "Delivery_person_Ratings": 1.0,
+      "Delivery_person_Age": 0.99,
+      "Time_Orderd": 0.9,
+      "City": 0.01,
+      "multiple_deliveries": 0.01,
+      "Weatherconditions": 0.47,
+      "Road_traffic_density": 0.47,
+      "Festival": 0.0
+    },
+    "Delivery_person_Age": {
+      "Delivery_person_Ratings": 0.99,
+      "Delivery_person_Age": 1.0,
+      "Time_Orderd": 0.91,
+      "City": 0.01,
+      "multiple_deliveries": 0.01,
+      "Weatherconditions": 0.48,
+      "Road_traffic_density": 0.47,
+      "Festival": 0.0
+    },
+    "Time_Orderd": {
+      "Delivery_person_Ratings": 0.9,
+      "Delivery_person_Age": 0.91,
+      "Time_Orderd": 1.0,
+      "City": 0.01,
+      "multiple_deliveries": 0.01,
+      "Weatherconditions": 0.59,
+      "Road_traffic_density": 0.58,
+      "Festival": 0.0
+    },
+    "City": {
+      "Delivery_person_Ratings": 0.01,
+      "Delivery_person_Age": 0.01,
+      "Time_Orderd": 0.01,
+      "City": 1.0,
+      "multiple_deliveries": 0.01,
+      "Weatherconditions": 0.01,
+      "Road_traffic_density": 0.01,
+      "Festival": 0.02
+    },
+    "multiple_deliveries": {
+      "Delivery_person_Ratings": 0.01,
+      "Delivery_person_Age": 0.01,
+      "Time_Orderd": 0.01,
+      "City": 0.01,
+      "multiple_deliveries": 1.0,
+      "Weatherconditions": -0.0,
+      "Road_traffic_density": -0.0,
+      "Festival": 0.01
+    },
+    "Weatherconditions": {
+      "Delivery_person_Ratings": 0.47,
+      "Delivery_person_Age": 0.48,
+      "Time_Orderd": 0.59,
+      "City": 0.01,
+      "multiple_deliveries": -0.0,
+      "Weatherconditions": 1.0,
+      "Road_traffic_density": 0.99,
+      "Festival": -0.0
+    },
+    "Road_traffic_density": {
+      "Delivery_person_Ratings": 0.47,
+      "Delivery_person_Age": 0.47,
+      "Time_Orderd": 0.58,
+      "City": 0.01,
+      "multiple_deliveries": -0.0,
+      "Weatherconditions": 0.99,
+      "Road_traffic_density": 1.0,
+      "Festival": -0.0
+    },
+    "Festival": {
+      "Delivery_person_Ratings": 0.0,
+      "Delivery_person_Age": 0.0,
+      "Time_Orderd": 0.0,
+      "City": 0.02,
+      "multiple_deliveries": 0.01,
+      "Weatherconditions": -0.0,
+      "Road_traffic_density": -0.0,
+      "Festival": 1.0
+    }
+  },
+  "age_rating_missing_together": 1854,
+  "target_by_missingness": {
+    "Delivery_person_Ratings": {
+      "target_mean_if_missing": 26.42,
+      "target_mean_if_present": 26.29
+    },
+    "Delivery_person_Age": {
+      "target_mean_if_missing": 26.46,
+      "target_mean_if_present": 26.29
+    },
+    "Time_Orderd": {
+      "target_mean_if_missing": 26.31,
+      "target_mean_if_present": 26.29
+    },
+    "City": {
+      "target_mean_if_missing": 22.06,
+      "target_mean_if_present": 26.41
+    },
+    "multiple_deliveries": {
+      "target_mean_if_missing": 22.77,
+      "target_mean_if_present": 26.37
+    },
+    "Weatherconditions": {
+      "target_mean_if_missing": 26.55,
+      "target_mean_if_present": 26.29
+    },
+    "Road_traffic_density": {
+      "target_mean_if_missing": 26.54,
+      "target_mean_if_present": 26.29
+    },
+    "Festival": {
+      "target_mean_if_missing": 11.17,
+      "target_mean_if_present": 26.37
+    }
+  },
+  "duplicates": {
+    "full_row_duplicates": 0,
+    "duplicates_ignoring_ID": 0,
+    "duplicate_IDs": 0
+  },
+  "cardinality": {
+    "ID": 45593,
+    "Delivery_person_ID": 1320,
+    "Delivery_person_Age": 22,
+    "Delivery_person_Ratings": 28,
+    "Restaurant_latitude": 657,
+    "Restaurant_longitude": 518,
+    "Delivery_location_latitude": 4373,
+    "Delivery_location_longitude": 4373,
+    "Order_Date": 44,
+    "Time_Orderd": 176,
+    "Time_Order_picked": 193,
+    "Weatherconditions": 6,
+    "Road_traffic_density": 4,
+    "Vehicle_condition": 4,
+    "Type_of_order": 4,
+    "Type_of_vehicle": 4,
+    "multiple_deliveries": 4,
+    "Festival": 2,
+    "City": 3,
+    "Time_taken(min)": 45
+  },
+  "numeric_describe": {
+    "Delivery_person_Age": {
+      "count": 43739.0,
+      "mean": 29.567,
+      "std": 5.815,
+      "min": 15.0,
+      "25%": 25.0,
+      "50%": 30.0,
+      "75%": 35.0,
+      "max": 50.0
+    },
+    "Delivery_person_Ratings": {
+      "count": 43685.0,
+      "mean": 4.634,
+      "std": 0.335,
+      "min": 1.0,
+      "25%": 4.5,
+      "50%": 4.7,
+      "75%": 4.9,
+      "max": 6.0
+    },
+    "Restaurant_latitude": {
+      "count": 45593.0,
+      "mean": 17.018,
+      "std": 8.185,
+      "min": -30.906,
+      "25%": 12.933,
+      "50%": 18.547,
+      "75%": 22.728,
+      "max": 30.914
+    },
+    "Restaurant_longitude": {
+      "count": 45593.0,
+      "mean": 70.231,
+      "std": 22.884,
+      "min": -88.366,
+      "25%": 73.17,
+      "50%": 75.898,
+      "75%": 78.044,
+      "max": 88.433
+    },
+    "Delivery_location_latitude": {
+      "count": 45593.0,
+      "mean": 17.465,
+      "std": 7.335,
+      "min": 0.01,
+      "25%": 12.988,
+      "50%": 18.634,
+      "75%": 22.785,
+      "max": 31.054
+    },
+    "Delivery_location_longitude": {
+      "count": 45593.0,
+      "mean": 70.846,
+      "std": 21.119,
+      "min": 0.01,
+      "25%": 73.28,
+      "50%": 76.003,
+      "75%": 78.107,
+      "max": 88.563
+    },
+    "Vehicle_condition": {
+      "count": 45593.0,
+      "mean": 1.023,
+      "std": 0.839,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 1.0,
+      "75%": 2.0,
+      "max": 3.0
+    },
+    "multiple_deliveries": {
+      "count": 44600.0,
+      "mean": 0.745,
+      "std": 0.572,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 1.0,
+      "75%": 1.0,
+      "max": 3.0
+    },
+    "target_min": {
+      "count": 45593.0,
+      "mean": 26.295,
+      "std": 9.384,
+      "min": 10.0,
+      "25%": 19.0,
+      "50%": 26.0,
+      "75%": 32.0,
+      "max": 54.0
+    }
+  },
+  "categorical_counts": {
+    "Weatherconditions": {
+      "Fog": 7654,
+      "Stormy": 7586,
+      "Cloudy": 7536,
+      "Sandstorms": 7495,
+      "Windy": 7422,
+      "Sunny": 7284,
+      "<missing>": 616
+    },
+    "Road_traffic_density": {
+      "Low": 15477,
+      "Jam": 14143,
+      "Medium": 10947,
+      "High": 4425,
+      "<missing>": 601
+    },
+    "Type_of_order": {
+      "Snack": 11533,
+      "Meal": 11458,
+      "Drinks": 11322,
+      "Buffet": 11280
+    },
+    "Type_of_vehicle": {
+      "motorcycle": 26435,
+      "scooter": 15276,
+      "electric_scooter": 3814,
+      "bicycle": 68
+    },
+    "Festival": {
+      "No": 44469,
+      "Yes": 896,
+      "<missing>": 228
+    },
+    "City": {
+      "Metropolitian": 34093,
+      "Urban": 10136,
+      "<missing>": 1200,
+      "Semi-Urban": 164
+    }
+  },
+  "target": {
+    "format_example": "(min) 24",
+    "min": 10,
+    "max": 54,
+    "mean": 26.295,
+    "median": 26.0,
+    "std": 9.384,
+    "skew": 0.486,
+    "n_unique": 45,
+    "missing": 0,
+    "quantiles": {
+      "0.5": 26.0,
+      "0.75": 32.0,
+      "0.8": 34.0,
+      "0.85": 37.0,
+      "0.9": 40.0,
+      "0.95": 44.0
+    }
+  },
+  "target_by_segment": {
+    "Road_traffic_density": {
+      "<missing>": {
+        "count": 601,
+        "mean": 26.54,
+        "median": 26.0
+      },
+      "High": {
+        "count": 4425,
+        "mean": 27.24,
+        "median": 27.0
+      },
+      "Jam": {
+        "count": 14143,
+        "mean": 31.18,
+        "median": 31.0
+      },
+      "Low": {
+        "count": 15477,
+        "mean": 21.27,
+        "median": 20.0
+      },
+      "Medium": {
+        "count": 10947,
+        "mean": 26.7,
+        "median": 27.0
+      }
+    },
+    "Weatherconditions": {
+      "<missing>": {
+        "count": 616,
+        "mean": 26.55,
+        "median": 26.0
+      },
+      "Cloudy": {
+        "count": 7536,
+        "mean": 28.92,
+        "median": 28.0
+      },
+      "Fog": {
+        "count": 7654,
+        "mean": 28.92,
+        "median": 28.0
+      },
+      "Sandstorms": {
+        "count": 7495,
+        "mean": 25.88,
+        "median": 26.0
+      },
+      "Stormy": {
+        "count": 7586,
+        "mean": 25.87,
+        "median": 26.0
+      },
+      "Sunny": {
+        "count": 7284,
+        "mean": 21.86,
+        "median": 20.0
+      },
+      "Windy": {
+        "count": 7422,
+        "mean": 26.12,
+        "median": 26.0
+      }
+    },
+    "City": {
+      "<missing>": {
+        "count": 1200,
+        "mean": 22.06,
+        "median": 21.0
+      },
+      "Metropolitian": {
+        "count": 34093,
+        "mean": 27.32,
+        "median": 27.0
+      },
+      "Semi-Urban": {
+        "count": 164,
+        "mean": 49.73,
+        "median": 49.0
+      },
+      "Urban": {
+        "count": 10136,
+        "mean": 22.98,
+        "median": 22.0
+      }
+    },
+    "Festival": {
+      "<missing>": {
+        "count": 228,
+        "mean": 11.17,
+        "median": 11.0
+      },
+      "No": {
+        "count": 44469,
+        "mean": 25.98,
+        "median": 25.0
+      },
+      "Yes": {
+        "count": 896,
+        "mean": 45.52,
+        "median": 45.0
+      }
+    },
+    "multiple_deliveries": {
+      "0.0": {
+        "count": 14095,
+        "mean": 22.88,
+        "median": 22.0
+      },
+      "1.0": {
+        "count": 28159,
+        "mean": 26.86,
+        "median": 26.0
+      },
+      "2.0": {
+        "count": 1985,
+        "mean": 40.45,
+        "median": 40.0
+      },
+      "3.0": {
+        "count": 361,
+        "mean": 47.82,
+        "median": 48.0
+      },
+      "<missing>": {
+        "count": 993,
+        "mean": 22.77,
+        "median": 21.0
+      }
+    },
+    "Vehicle_condition": {
+      "0": {
+        "count": 15009,
+        "mean": 30.07,
+        "median": 28.0
+      },
+      "1": {
+        "count": 15030,
+        "mean": 24.36,
+        "median": 24.0
+      },
+      "2": {
+        "count": 15034,
+        "mean": 24.46,
+        "median": 24.0
+      },
+      "3": {
+        "count": 520,
+        "mean": 26.49,
+        "median": 26.0
+      }
+    }
+  },
+  "geo": {
+    "restaurant_zero_coords": 3640,
+    "restaurant_negative_lat": 431,
+    "restaurant_negative_lon": 162,
+    "restaurant_any_negative": 431,
+    "restaurant_in_india_raw": 41522,
+    "restaurant_in_india_after_abs": 41953,
+    "delivery_in_india_raw": 41953,
+    "delivery_near_zero(<1deg)": 3640,
+    "delivery_near_zero_coincides_with_zero_restaurant": true,
+    "negative_restaurant_rows_with_positive_delivery": 431,
+    "unique_restaurant_locations_abs": 389,
+    "valid_rows_after_abs": 41953,
+    "lat_offset_equals_lon_offset_share": 0.9822,
+    "lat_offset_values_top": {
+      "0.05": 3775,
+      "0.02": 3761,
+      "0.09": 3759,
+      "0.07": 3740,
+      "0.11": 3728,
+      "0.01": 3698,
+      "0.04": 3685,
+      "0.03": 3678,
+      "0.08": 3654,
+      "0.06": 3641,
+      "0.13": 3622,
+      "0.14": 551,
+      "0.130001": 73,
+      "0.060001": 61,
+      "0.080001": 58
+    },
+    "distance_km_valid": {
+      "count": 41953.0,
+      "mean": 9.72,
+      "std": 5.603,
+      "min": 1.465,
+      "25%": 4.658,
+      "50%": 9.193,
+      "75%": 13.681,
+      "max": 20.969
+    },
+    "pearson_distance_target_valid": 0.3205
+  },
+  "time": {
+    "order_date_min": "2022-02-11",
+    "order_date_max": "2022-04-06",
+    "n_unique_dates": 44,
+    "calendar_dates_without_orders": [
+      "2022-02-19",
+      "2022-02-20",
+      "2022-02-21",
+      "2022-02-22",
+      "2022-02-23",
+      "2022-02-24",
+      "2022-02-25",
+      "2022-02-26",
+      "2022-02-27",
+      "2022-02-28",
+      "2022-03-22"
+    ],
+    "rows_per_month": {
+      "2022-02": 7242,
+      "2022-03": 31989,
+      "2022-04": 6362
+    },
+    "rows_per_weekday": {
+      "Wednesday": 7093,
+      "Friday": 7031,
+      "Tuesday": 6375,
+      "Thursday": 6348,
+      "Saturday": 6290,
+      "Sunday": 6249,
+      "Monday": 6207
+    },
+    "Time_Orderd_missing": 1731,
+    "pickup_minus_order_minutes_counts": {
+      "5.0": 14564,
+      "10.0": 14288,
+      "15.0": 14179,
+      "-1425.0": 431,
+      "-1430.0": 261,
+      "-1435.0": 139
+    },
+    "negative_gap_rows (midnight crossing)": 831,
+    "orders_by_hour": {
+      "0": 430,
+      "8": 1818,
+      "9": 1947,
+      "10": 1991,
+      "11": 1962,
+      "12": 892,
+      "13": 784,
+      "14": 791,
+      "15": 873,
+      "16": 709,
+      "17": 4278,
+      "18": 4480,
+      "19": 4595,
+      "20": 4539,
+      "21": 4686,
+      "22": 4576,
+      "23": 4511
+    }
+  },
+  "outliers_iqr": {
+    "Delivery_person_Age": {
+      "iqr_low": 10.0,
+      "iqr_high": 50.0,
+      "n_below": 0,
+      "n_above": 0
+    },
+    "Delivery_person_Ratings": {
+      "iqr_low": 3.9,
+      "iqr_high": 5.5,
+      "n_below": 1170,
+      "n_above": 53
+    },
+    "target_min": {
+      "iqr_low": -0.5,
+      "iqr_high": 51.5,
+      "n_below": 0,
+      "n_above": 270
+    },
+    "dist_km_audit": {
+      "iqr_low": -8.877,
+      "iqr_high": 27.216,
+      "n_below": 0,
+      "n_above": 0
+    },
+    "multiple_deliveries": {
+      "iqr_low": -1.5,
+      "iqr_high": 2.5,
+      "n_below": 0,
+      "n_above": 361
+    }
+  },
+  "invalid_values": {
+    "ratings_above_5": 53,
+    "ratings_eq_1": 38,
+    "age_15 (below typical working age)": 38,
+    "age_50": 53,
+    "age15_rows_all_have_rating_1": true,
+    "age50_rows_all_have_rating_6": true,
+    "vehicle_condition_3": 520
+  },
+  "spearman_corr": {
+    "Delivery_person_Age": {
+      "Delivery_person_Age": 1.0,
+      "Delivery_person_Ratings": -0.1,
+      "Vehicle_condition": -0.0,
+      "multiple_deliveries": 0.11,
+      "dist_km_audit": -0.0,
+      "target_min": 0.31
+    },
+    "Delivery_person_Ratings": {
+      "Delivery_person_Age": -0.1,
+      "Delivery_person_Ratings": 1.0,
+      "Vehicle_condition": 0.07,
+      "multiple_deliveries": -0.09,
+      "dist_km_audit": -0.07,
+      "target_min": -0.29
+    },
+    "Vehicle_condition": {
+      "Delivery_person_Age": -0.0,
+      "Delivery_person_Ratings": 0.07,
+      "Vehicle_condition": 1.0,
+      "multiple_deliveries": -0.09,
+      "dist_km_audit": 0.01,
+      "target_min": -0.22
+    },
+    "multiple_deliveries": {
+      "Delivery_person_Age": 0.11,
+      "Delivery_person_Ratings": -0.09,
+      "Vehicle_condition": -0.09,
+      "multiple_deliveries": 1.0,
+      "dist_km_audit": 0.12,
+      "target_min": 0.34
+    },
+    "dist_km_audit": {
+      "Delivery_person_Age": -0.0,
+      "Delivery_person_Ratings": -0.07,
+      "Vehicle_condition": 0.01,
+      "multiple_deliveries": 0.12,
+      "dist_km_audit": 1.0,
+      "target_min": 0.32
+    },
+    "target_min": {
+      "Delivery_person_Age": 0.31,
+      "Delivery_person_Ratings": -0.29,
+      "Vehicle_condition": -0.22,
+      "multiple_deliveries": 0.34,
+      "dist_km_audit": 0.32,
+      "target_min": 1.0
+    }
+  },
+  "rider_id": {
+    "n_ids": 1320,
+    "orders_per_id": {
+      "count": 1320.0,
+      "mean": 34.54,
+      "std": 21.31,
+      "min": 5.0,
+      "25%": 13.0,
+      "50%": 41.0,
+      "75%": 56.0,
+      "max": 67.0
+    },
+    "ids_with_more_than_one_age": 1320,
+    "distinct_ages_per_id": {
+      "count": 1320.0,
+      "mean": 14.22,
+      "std": 4.97,
+      "min": 4.0,
+      "25%": 9.0,
+      "50%": 17.0,
+      "75%": 19.0,
+      "max": 22.0
+    },
+    "ids_with_more_than_one_vehicle_type": 1320,
+    "restaurant_locations_per_id_max": 1,
+    "id_pattern_ok": true,
+    "city_codes_in_id": 22,
+    "orders_per_city_code": {
+      "JAP": 3443,
+      "RANCHI": 3229,
+      "BANG": 3195,
+      "SUR": 3187,
+      "HYD": 3181,
+      "MUM": 3173,
+      "MYS": 3171,
+      "COIMB": 3170,
+      "VAD": 3166,
+      "INDO": 3159,
+      "CHEN": 3145,
+      "PUNE": 3132,
+      "AGR": 763,
+      "LUDH": 758,
+      "KNP": 740,
+      "ALH": 740,
+      "DEH": 737,
+      "GOA": 709,
+      "AURG": 703,
+      "KOC": 701,
+      "KOL": 700,
+      "BHP": 691
+    },
+    "City_column_levels": {
+      "Metropolitian": 34093,
+      "Urban": 10136,
+      "NaN": 1200,
+      "Semi-Urban": 164
+    },
+    "vehicle_condition_by_type": {
+      "bicycle": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 68
+      },
+      "electric_scooter": {
+        "0": 0,
+        "1": 0,
+        "2": 3626,
+        "3": 188
+      },
+      "motorcycle": {
+        "0": 15009,
+        "1": 7583,
+        "2": 3753,
+        "3": 90
+      },
+      "scooter": {
+        "0": 0,
+        "1": 7447,
+        "2": 7655,
+        "3": 174
+      }
+    }
+  },
+  "raw_sha256": "d293b6fc7157aef30fb34301216a3432ec895d407ce2ea9edddf942b416cdde1",
+  "raw_unchanged": true
+}

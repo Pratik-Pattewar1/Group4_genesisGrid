@@ -1,0 +1,28 @@
+[
+  {
+    "pdf": "reports/business_insights_report.pdf",
+    "pages": 23,
+    "page_requirement": "≥ 5",
+    "pages_ok": true,
+    "figures_inserted": 17,
+    "images_in_pdf": 17,
+    "headings_checked": 25,
+    "missing_headings": [],
+    "decimal_numbers_checked": 378,
+    "missing_numbers": [],
+    "ok": true
+  },
+  {
+    "pdf": "reports/business_report.pdf",
+    "pages": 6,
+    "page_requirement": "4–6",
+    "pages_ok": true,
+    "figures_inserted": 4,
+    "images_in_pdf": 4,
+    "headings_checked": 9,
+    "missing_headings": [],
+    "decimal_numbers_checked": 76,
+    "missing_numbers": [],
+    "ok": true
+  }
+]

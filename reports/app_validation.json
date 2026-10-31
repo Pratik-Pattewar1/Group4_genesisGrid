@@ -1,0 +1,194 @@
+{
+  "run_date": "2026-10-31",
+  "checks": [
+    {
+      "check": "saved model files unchanged (SHA-256 vs pre-Stage-6)",
+      "passed": true,
+      "detail": "all 6 identical"
+    },
+    {
+      "check": "parity: 600 orders scored one at a time match the training pipeline exactly",
+      "passed": true,
+      "detail": "max |\u0394ETA| 0.0, max |\u0394risk| 0.0; 300 with unknown/invalid inputs"
+    },
+    {
+      "check": "app inputs contain no post-placement or leakage fields",
+      "passed": true,
+      "detail": "['restaurant_lat', 'restaurant_lon', 'order_date', 'order_time', 'city_type', 'order_type', 'festival', 'customer_lat', 'customer_lon', 'distance_km']"
+    },
+    {
+      "check": "model features are the 13 order-placement features only",
+      "passed": true,
+      "detail": "['distance_km', 'restaurant_lat', 'restaurant_lon', 'order_hour', 'order_hour_sin', 'order_hour_cos', 'order_day_of_month', 'order_is_weekend', 'city_type', 'order_type', 'festival', 'order_time_band', 'order_day_of_week']"
+    },
+    {
+      "check": "no leakage field exists as an app widget",
+      "passed": true,
+      "detail": "none"
+    },
+    {
+      "check": "invalid inputs are rejected with a clear message",
+      "passed": true,
+      "detail": "9/9 rejected"
+    },
+    {
+      "check": "all-unknown order is scored with warnings, not a crash",
+      "passed": true,
+      "detail": "ETA 29.5, risk 0.477, 5 warnings"
+    },
+    {
+      "check": "hours with no training data (01\u201307) produce an extrapolation warning",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "business sense: evening 16 km order has a longer ETA and higher risk than morning 3 km order",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "all scenario predictions are finite, ETA within 5\u201360 min, risk within 0\u2013100%",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "app loads without exceptions; 4 tabs render",
+      "passed": true,
+      "detail": "['\ud83d\udd2e Predict an order', '\ud83d\udcca Business insights', '\ud83d\udcc8 Model performance', '\ud83e\uddf9 Data quality & limitations']"
+    },
+    {
+      "check": "UI: 4 example orders show ETA, risk % and level that match the prediction service",
+      "passed": true,
+      "detail": "[('Weekday morning, short trip', '18.1 min', '2%', 'Low'), ('Evening peak, long trip', '32.9 min', '61%', 'High'), ('Afternoon, medium trip', '24.0 min', '16%', 'Low'), ('Late night, short trip', '18.0 min', '2%', 'Low')]"
+    },
+    {
+      "check": "UI: invalid store coordinates show an error message, not a crash",
+      "passed": true,
+      "detail": "['This order cannot be scored: Store coordinates are outside the area covered by the data (I']"
+    },
+    {
+      "check": "UI: unknown order time is handled with a warning",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "UI states '> 30 min' is a project benchmark, not an official SLA",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "UI states risk scores are uncalibrated",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "UI shows the three approved recommendations",
+      "passed": true,
+      "detail": "['Priority 1 \u2014 Deploy order-placement late-risk alerts with ti', 'Priority 2 \u2014 Introduce a two-stage ETA: estimate at placemen', 'Priority 3 \u2014 Surge-staff riders in the 19:00\u201321:59 window an']"
+    },
+    {
+      "check": "raw, cleaned and engineered datasets unchanged",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "passed": 18,
+  "total": 18,
+  "scenarios": [
+    {
+      "scenario": "Bengaluru, weekday 09:15, 3 km snack",
+      "eta_min": 18.04,
+      "risk_pct": 1.8,
+      "risk_level": "Low",
+      "distance_km": 3.0,
+      "warnings": 0,
+      "top_driver": "City type (vs Metropolitan)"
+    },
+    {
+      "scenario": "Bengaluru, weekday 20:00, 16 km meal",
+      "eta_min": 32.87,
+      "risk_pct": 61.4,
+      "risk_level": "High",
+      "distance_km": 16.0,
+      "warnings": 0,
+      "top_driver": "Distance (vs 9.2 km)"
+    },
+    {
+      "scenario": "Mumbai, Fri 16:30, 8 km drinks",
+      "eta_min": 24.11,
+      "risk_pct": 19.5,
+      "risk_level": "Low",
+      "distance_km": 8.0,
+      "warnings": 0,
+      "top_driver": "Time of day (vs 19:00)"
+    },
+    {
+      "scenario": "Jaipur, Sat 23:10, 4 km buffet",
+      "eta_min": 18.53,
+      "risk_pct": 2.0,
+      "risk_level": "Low",
+      "distance_km": 4.0,
+      "warnings": 0,
+      "top_driver": "Time of day (vs 19:00)"
+    },
+    {
+      "scenario": "Chennai, festival evening 19:45, 12 km",
+      "eta_min": 45.51,
+      "risk_pct": 99.8,
+      "risk_level": "High",
+      "distance_km": 12.0,
+      "warnings": 1,
+      "top_driver": "Festival (vs No)"
+    },
+    {
+      "scenario": "Hyderabad, customer coordinates 21:00",
+      "eta_min": 27.2,
+      "risk_pct": 31.5,
+      "risk_level": "Elevated",
+      "distance_km": 7.68,
+      "warnings": 0,
+      "top_driver": "Distance (vs 9.2 km)"
+    }
+  ],
+  "ui_examples": [
+    {
+      "preset": "Weekday morning, short trip",
+      "ui_eta": "18.1 min",
+      "ui_risk": "2%",
+      "ui_level": "Low",
+      "matches_service": true
+    },
+    {
+      "preset": "Evening peak, long trip",
+      "ui_eta": "32.9 min",
+      "ui_risk": "61%",
+      "ui_level": "High",
+      "matches_service": true
+    },
+    {
+      "preset": "Afternoon, medium trip",
+      "ui_eta": "24.0 min",
+      "ui_risk": "16%",
+      "ui_level": "Low",
+      "matches_service": true
+    },
+    {
+      "preset": "Late night, short trip",
+      "ui_eta": "18.0 min",
+      "ui_risk": "2%",
+      "ui_level": "Low",
+      "matches_service": true
+    }
+  ],
+  "rejections": {
+    "store outside India": "Store coordinates are outside the area covered by the data (India).",
+    "customer outside India": "Customer coordinates are outside the area covered by the data (India).",
+    "only one store coordinate": "Enter both store latitude and longitude, or neither.",
+    "only one customer coordinate": "Enter both customer latitude and longitude, or neither.",
+    "distance 0 km": "Delivery distance must be greater than 0 km.",
+    "distance 30 km (beyond data limit)": "Delivery distance 30.0 km exceeds the 25 km limit of the data.",
+    "customer 60 km away": "Delivery distance 59.7 km exceeds the 25 km limit of the data.",
+    "invalid order type": "Invalid Order type: 'Pizza'. Allowed: Snack, Meal, Drinks, Buffet.",
+    "invalid city type": "Invalid City type: 'Rural'. Allowed: Urban, Metropolitan, Semi-Urban."
+  }
+}

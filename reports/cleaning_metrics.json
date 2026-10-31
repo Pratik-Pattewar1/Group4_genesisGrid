@@ -1,0 +1,262 @@
+{
+  "run_date": "2026-10-31",
+  "raw_sha256_before": "d293b6fc7157aef30fb34301216a3432ec895d407ce2ea9edddf942b416cdde1",
+  "raw_sha256_after": "d293b6fc7157aef30fb34301216a3432ec895d407ce2ea9edddf942b416cdde1",
+  "raw_unchanged": true,
+  "rows_in": 45593,
+  "rows_out": 45593,
+  "cols_out": 33,
+  "rows_any_flag": 6156,
+  "flag_counts": {
+    "dq_restaurant_sign_corrected": 431,
+    "dq_geo_valid": 3640,
+    "dq_rider_sentinel": 91,
+    "dq_pickup_midnight_rollover": 831,
+    "dq_pickup_day_assumed": 1731
+  },
+  "values_changed": {
+    "restaurant_lat": [
+      4071,
+      "sign fix (R8) or blanked (R9)"
+    ],
+    "restaurant_lon": [
+      3802,
+      "sign fix (R8) or blanked (R9)"
+    ],
+    "delivery_lat": [
+      3640,
+      "blanked, geo-invalid (R9)"
+    ],
+    "delivery_lon": [
+      3640,
+      "blanked, geo-invalid (R9)"
+    ],
+    "delivery_person_age": [
+      91,
+      "sentinel blanked (R10)"
+    ],
+    "delivery_person_rating": [
+      91,
+      "sentinel blanked (R10)"
+    ],
+    "city_type": [
+      34093,
+      "raw `Metropolitian` values respelled `Metropolitan` (R5)"
+    ],
+    "pickup date": [
+      831,
+      "midnight roll-over +1 day (R6)"
+    ]
+  },
+  "values_changed_substantive": 16166,
+  "steps": {
+    "r1_whitespace_stripped_values": {
+      "ID": 45593,
+      "Delivery_person_ID": 45593,
+      "Delivery_person_Age": 1854,
+      "Delivery_person_Ratings": 1908,
+      "Time_Orderd": 1731,
+      "Road_traffic_density": 45593,
+      "Type_of_order": 45593,
+      "Type_of_vehicle": 45593,
+      "multiple_deliveries": 993,
+      "Festival": 45593,
+      "City": 45593
+    },
+    "r2_missing_tokens_to_null": {
+      "Delivery_person_Age": 1854,
+      "Delivery_person_Ratings": 1908,
+      "Time_Orderd": 1731,
+      "Weatherconditions": 616,
+      "Road_traffic_density": 601,
+      "multiple_deliveries": 993,
+      "Festival": 228,
+      "City": 1200
+    },
+    "r2_weather_conditions_nan_tokens": 616,
+    "r5_city_type_renamed_values": {
+      "Metropolitian": 34093
+    },
+    "r6_pickup_midnight_rollover_rows": 831,
+    "r6_pickup_day_assumed_rows": 1731,
+    "r6_pickup_day_assumed_with_pickup_hour_0": 59,
+    "r8_negative_sign_rows": 431,
+    "r8_negative_lat_only": 269,
+    "r8_negative_lat_and_lon": 162,
+    "r8_negative_lon_only": 0,
+    "r8_evidence_pass_counts_on_negative_rows": {
+      "A_same_id_location_seen_positive": 431,
+      "B_delivery_offset_in_normal_band": 431,
+      "C_inside_india": 431,
+      "D_distance_le_25km": 431,
+      "all_four": 431
+    },
+    "r8_sign_corrected_rows": 431,
+    "r8_negative_rows_failing_validation": 0,
+    "r9_restaurant_zero_coordinate_rows": 3640,
+    "r9_geo_invalid_rows": 3640,
+    "r9_geo_invalid_rows_that_are_zero_coordinate": 3640,
+    "r9_zero_rows_whose_id_has_a_valid_location_elsewhere": 0,
+    "r10_rider_sentinel_rows": 91,
+    "r10_rider_sentinel_by_age": {
+      "15": 38,
+      "50": 53
+    },
+    "r10_age_15_or_50_not_matching_sentinel_rating": 0,
+    "r10_rating_outside_assumed_range_after_cleaning": 0,
+    "missing_after_cleaning": {
+      "delivery_person_age": 1945,
+      "delivery_person_rating": 1999,
+      "restaurant_lat": 3640,
+      "restaurant_lon": 3640,
+      "delivery_lat": 3640,
+      "delivery_lon": 3640,
+      "order_time": 1731,
+      "order_datetime": 1731,
+      "weather": 616,
+      "traffic_density": 601,
+      "multiple_deliveries": 993,
+      "festival": 228,
+      "city_type": 1200,
+      "delivery_person_age_raw": 1854,
+      "delivery_person_rating_raw": 1908
+    }
+  },
+  "checks": [
+    {
+      "check": "row count preserved",
+      "passed": true,
+      "detail": "45593 -> 45593"
+    },
+    {
+      "check": "order_id unique",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "order_id 1:1 and same order as raw",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "output columns match schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no 'NaN' text tokens remain",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no leading/trailing whitespace remains",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "weather values in allowed set",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "traffic_density values in allowed set",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "order_type values in allowed set",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "vehicle_type values in allowed set",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "festival values in allowed set",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "city_type values in allowed set",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "target is complete integer in [10, 54]",
+      "passed": true,
+      "detail": "min=10 max=54"
+    },
+    {
+      "check": "target unchanged vs raw",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geo-valid rows: restaurant & delivery inside India",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geo-valid rows: distance <= 25 km",
+      "passed": true,
+      "detail": "min=1.47 max=20.97 km"
+    },
+    {
+      "check": "geo-invalid rows: all coordinates blank (not imputed)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no negative coordinates remain",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "sign-corrected rows equal abs(raw) values",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "non-corrected valid coordinates unchanged",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "age within [20, 39] or missing",
+      "passed": true,
+      "detail": "min=20.0 max=39.0"
+    },
+    {
+      "check": "rating within assumed [1, 5] or missing",
+      "passed": true,
+      "detail": "min=2.5 max=5.0"
+    },
+    {
+      "check": "sentinel rows: age & rating blank, originals preserved",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "pickup - order gap in {5, 10, 15} minutes",
+      "passed": true,
+      "detail": "values: [5.0, 10.0, 15.0]"
+    },
+    {
+      "check": "pickup never before order",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "pickup_datetime present for every row",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "checks_passed": 26,
+  "checks_total": 26,
+  "deterministic": true,
+  "reload_roundtrip": true,
+  "output_sha256": "3f2f1ee971632876fe41d09da8fc35a618303b5f945cdd1816c63e6a2047bcfa"
+}

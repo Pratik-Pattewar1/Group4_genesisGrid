@@ -1,0 +1,2692 @@
+{
+  "run_date": "2026-10-31",
+  "checks": [
+    {
+      "check": "input datasets match the recorded SHA-256 hashes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "saved models use only primary order-placement features (strict leakage guard)",
+      "passed": true,
+      "detail": "13 features"
+    },
+    {
+      "check": "every Stage 4 figure in the brief matches recomputation from saved models / metrics (to stated precision)",
+      "passed": true,
+      "detail": "mismatches: none"
+    },
+    {
+      "check": "saved models reproduce stored Stage 4 test metrics exactly",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "K-Means zones recomputed from saved model reproduce Stage 4 silhouette (\u00b10.005)",
+      "passed": true,
+      "detail": "0.9483 vs 0.9482"
+    },
+    {
+      "check": "rider-ID evidence recomputed from cleaned data (every ID has >1 age)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw, cleaned and engineered datasets unchanged after Stage 5",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "explainability computed on training rows only",
+      "passed": true,
+      "detail": "37,123 rows"
+    },
+    {
+      "check": "exactly three prioritised recommendations",
+      "passed": true,
+      "detail": "3"
+    },
+    {
+      "check": "every figure referenced in the Stage 5 documents exists",
+      "passed": true,
+      "detail": "all present"
+    },
+    {
+      "check": "challenge guide PDF found and used for the compliance check",
+      "passed": true,
+      "detail": "['Hackathon_Challenge_Guide.pdf']"
+    },
+    {
+      "check": "Business Report within the guide's 4\u20136 pages (estimated 1,800\u20133,300 words)",
+      "passed": true,
+      "detail": "2,123 words"
+    },
+    {
+      "check": "Business Solution Document at least 5 pages (estimated \u2265 2,500 words)",
+      "passed": true,
+      "detail": "6,084 words"
+    },
+    {
+      "check": "Stage 5 documents are complete (no stub markers; every document > 3,000 characters)",
+      "passed": true,
+      "detail": "stub: none; short files: none"
+    },
+    {
+      "check": "rider profiles labelled as order-level, not rider segmentation",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "30-minute benchmark never described as an official SLA",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "challenge_pdf_found_in_project": [
+    "Hackathon_Challenge_Guide.pdf"
+  ],
+  "stage4_verification": {
+    "eta_MAE": {
+      "brief": 6.19,
+      "recomputed": 6.193973873983528,
+      "match": true
+    },
+    "eta_RMSE": {
+      "brief": 7.73,
+      "recomputed": 7.7334921197543345,
+      "match": true
+    },
+    "eta_R2": {
+      "brief": 0.31,
+      "recomputed": 0.31009220612301036,
+      "match": true
+    },
+    "baseline_MAE": {
+      "brief": 7.47,
+      "recomputed": 7.4736717827626915,
+      "match": true
+    },
+    "improvement_pct": {
+      "brief": 17.1,
+      "recomputed": 17.122746970647874,
+      "match": true
+    },
+    "ROC_AUC": {
+      "brief": 0.791,
+      "recomputed": 0.7910963568452434,
+      "match": true
+    },
+    "PR_AUC": {
+      "brief": 0.608,
+      "recomputed": 0.6084341106444813,
+      "match": true
+    },
+    "precision": {
+      "brief": 0.467,
+      "recomputed": 0.46683974510266696,
+      "match": true
+    },
+    "recall": {
+      "brief": 0.813,
+      "recomputed": 0.8133223684210527,
+      "match": true
+    },
+    "F1": {
+      "brief": 0.593,
+      "recomputed": 0.5931923826660669,
+      "match": true
+    },
+    "threshold": {
+      "brief": 0.268,
+      "recomputed": 0.2680600976092946,
+      "match": true
+    },
+    "dispatch_MAE": {
+      "brief": 3.5,
+      "recomputed": 3.498161,
+      "match": true
+    },
+    "dispatch_ROC_AUC": {
+      "brief": 0.98,
+      "recomputed": 0.982534,
+      "match": true
+    },
+    "k": {
+      "brief": 22,
+      "recomputed": 22,
+      "match": true
+    },
+    "silhouette": {
+      "brief": 0.948,
+      "recomputed": 0.94822,
+      "match": true
+    }
+  },
+  "regression": {
+    "test": {
+      "MAE": 6.193973873983528,
+      "RMSE": 7.7334921197543345,
+      "R2": 0.31009220612301036,
+      "n": 8470
+    },
+    "baseline_test": {
+      "MAE": 7.4736717827626915,
+      "RMSE": 9.311201059540732,
+      "R2": -0.00011782039251073684,
+      "n": 8470
+    },
+    "variants": {
+      "primary": {
+        "feature_set": "primary",
+        "train_rows": 37123,
+        "cv": {
+          "MAE": 6.287823,
+          "RMSE": 7.812689,
+          "R2": 0.308627
+        },
+        "test": {
+          "all": {
+            "MAE": 6.187119,
+            "RMSE": 7.727661,
+            "R2": 0.311132,
+            "n": 8470
+          },
+          "complete_time": {
+            "MAE": 6.164289,
+            "RMSE": 7.707331,
+            "R2": 0.314901,
+            "n": 8153
+          },
+          "missing_time": {
+            "MAE": 6.774313,
+            "RMSE": 8.233305,
+            "R2": 0.212205,
+            "n": 317
+          }
+        }
+      },
+      "primary_no_month": {
+        "feature_set": "primary_no_month",
+        "train_rows": 37123,
+        "cv": {
+          "MAE": 6.294618,
+          "RMSE": 7.822503,
+          "R2": 0.306924
+        },
+        "test": {
+          "all": {
+            "MAE": 6.193974,
+            "RMSE": 7.733492,
+            "R2": 0.310092,
+            "n": 8470
+          },
+          "complete_time": {
+            "MAE": 6.170752,
+            "RMSE": 7.712987,
+            "R2": 0.313895,
+            "n": 8153
+          },
+          "missing_time": {
+            "MAE": 6.791234,
+            "RMSE": 8.243357,
+            "R2": 0.210281,
+            "n": 317
+          }
+        }
+      },
+      "primary_excl_missing_time_train": {
+        "feature_set": "primary",
+        "train_rows": 35709,
+        "cv": {
+          "MAE": 6.317534,
+          "RMSE": 7.852917,
+          "R2": 0.301503
+        },
+        "test": {
+          "all": {
+            "MAE": 6.203343,
+            "RMSE": 7.742057,
+            "R2": 0.308563,
+            "n": 8470
+          },
+          "complete_time": {
+            "MAE": 6.156034,
+            "RMSE": 7.691554,
+            "R2": 0.317703,
+            "n": 8153
+          },
+          "missing_time": {
+            "MAE": 7.420097,
+            "RMSE": 8.943503,
+            "R2": 0.070435,
+            "n": 317
+          }
+        }
+      },
+      "primary_excl_missing_festival_train": {
+        "feature_set": "primary",
+        "train_rows": 36944,
+        "cv": {
+          "MAE": 6.27805,
+          "RMSE": 7.800928,
+          "R2": 0.310802
+        },
+        "test": {
+          "all": {
+            "MAE": 6.176437,
+            "RMSE": 7.711545,
+            "R2": 0.314002,
+            "n": 8470
+          },
+          "complete_time": {
+            "MAE": 6.155606,
+            "RMSE": 7.693143,
+            "R2": 0.317421,
+            "n": 8153
+          },
+          "missing_time": {
+            "MAE": 6.71221,
+            "RMSE": 8.170626,
+            "R2": 0.224154,
+            "n": 317
+          }
+        }
+      },
+      "dispatch_comparison": {
+        "feature_set": "dispatch_comparison",
+        "train_rows": 37123,
+        "cv": {
+          "MAE": 3.556743,
+          "RMSE": 4.464896,
+          "R2": 0.772541
+        },
+        "test": {
+          "all": {
+            "MAE": 3.498161,
+            "RMSE": 4.37316,
+            "R2": 0.779387,
+            "n": 8470
+          },
+          "complete_time": {
+            "MAE": 3.423691,
+            "RMSE": 4.257651,
+            "R2": 0.790933,
+            "n": 8153
+          },
+          "missing_time": {
+            "MAE": 5.413468,
+            "RMSE": 6.690657,
+            "R2": 0.479762,
+            "n": 317
+          }
+        }
+      },
+      "dispatch_no_rating": {
+        "feature_set": "dispatch_no_rating",
+        "train_rows": 37123,
+        "cv": {
+          "MAE": 3.823245,
+          "RMSE": 4.775766,
+          "R2": 0.739269
+        },
+        "test": {
+          "all": {
+            "MAE": 3.6708,
+            "RMSE": 4.543538,
+            "R2": 0.761862,
+            "n": 8470
+          },
+          "complete_time": {
+            "MAE": 3.599886,
+            "RMSE": 4.43689,
+            "R2": 0.77296,
+            "n": 8153
+          },
+          "missing_time": {
+            "MAE": 5.494651,
+            "RMSE": 6.728751,
+            "R2": 0.473821,
+            "n": 317
+          }
+        }
+      }
+    },
+    "families": {
+      "baseline_median": {
+        "params": {},
+        "cv": {
+          "MAE": 7.607935,
+          "RMSE": 9.45271,
+          "R2": -0.011156
+        },
+        "test": {
+          "all": {
+            "MAE": 7.473672,
+            "RMSE": 9.311201,
+            "R2": -0.000118,
+            "n": 8470
+          },
+          "complete_time": {
+            "MAE": 7.475163,
+            "RMSE": 9.312389,
+            "R2": -0.000156,
+            "n": 8153
+          },
+          "missing_time": {
+            "MAE": 7.435331,
+            "RMSE": 9.280589,
+            "R2": -0.000958,
+            "n": 317
+          }
+        }
+      },
+      "ridge": {
+        "params": {
+          "alpha": 100.0
+        },
+        "cv": {
+          "MAE": 6.621312,
+          "RMSE": 8.220917,
+          "R2": 0.232702
+        },
+        "test": {
+          "all": {
+            "MAE": 6.418624,
+            "RMSE": 7.99649,
+            "R2": 0.26237,
+            "n": 8470
+          },
+          "complete_time": {
+            "MAE": 6.390389,
+            "RMSE": 7.969212,
+            "R2": 0.267553,
+            "n": 8153
+          },
+          "missing_time": {
+            "MAE": 7.1448,
+            "RMSE": 8.668626,
+            "R2": 0.126697,
+            "n": 317
+          }
+        }
+      },
+      "random_forest": {
+        "params": {
+          "min_samples_leaf": 20
+        },
+        "cv": {
+          "MAE": 6.298525,
+          "RMSE": 7.849169,
+          "R2": 0.302238
+        },
+        "test": {
+          "all": {
+            "MAE": 6.202269,
+            "RMSE": 7.763908,
+            "R2": 0.304655,
+            "n": 8470
+          },
+          "complete_time": {
+            "MAE": 6.179206,
+            "RMSE": 7.744542,
+            "R2": 0.30827,
+            "n": 8153
+          },
+          "missing_time": {
+            "MAE": 6.795439,
+            "RMSE": 8.246377,
+            "R2": 0.209702,
+            "n": 317
+          }
+        }
+      },
+      "hist_gbm": {
+        "params": {
+          "learning_rate": 0.05,
+          "max_leaf_nodes": 15,
+          "l2_regularization": 1.0
+        },
+        "cv": {
+          "MAE": 6.294618,
+          "RMSE": 7.822503,
+          "R2": 0.306924
+        },
+        "test": {
+          "all": {
+            "MAE": 6.193974,
+            "RMSE": 7.733492,
+            "R2": 0.310092,
+            "n": 8470
+          },
+          "complete_time": {
+            "MAE": 6.170752,
+            "RMSE": 7.712987,
+            "R2": 0.313895,
+            "n": 8153
+          },
+          "missing_time": {
+            "MAE": 6.791234,
+            "RMSE": 8.243357,
+            "R2": 0.210281,
+            "n": 317
+          }
+        }
+      }
+    },
+    "segments_test": {
+      "traffic_density": [
+        {
+          "traffic_density": "<missing>",
+          "n": 115,
+          "MAE": 6.616,
+          "mean_actual": 26.01
+        },
+        {
+          "traffic_density": "High",
+          "n": 870,
+          "MAE": 6.278,
+          "mean_actual": 27.01
+        },
+        {
+          "traffic_density": "Jam",
+          "n": 2576,
+          "MAE": 7.312,
+          "mean_actual": 30.91
+        },
+        {
+          "traffic_density": "Low",
+          "n": 2855,
+          "MAE": 5.115,
+          "mean_actual": 21.19
+        },
+        {
+          "traffic_density": "Medium",
+          "n": 2054,
+          "MAE": 6.232,
+          "mean_actual": 26.51
+        }
+      ],
+      "city_type": [
+        {
+          "city_type": "<missing>",
+          "n": 230,
+          "MAE": 7.01,
+          "mean_actual": 21.95
+        },
+        {
+          "city_type": "Metropolitan",
+          "n": 6378,
+          "MAE": 6.142,
+          "mean_actual": 27.12
+        },
+        {
+          "city_type": "Semi-Urban",
+          "n": 35,
+          "MAE": 2.578,
+          "mean_actual": 49.06
+        },
+        {
+          "city_type": "Urban",
+          "n": 1827,
+          "MAE": 6.342,
+          "mean_actual": 22.63
+        }
+      ],
+      "distance_band": [
+        {
+          "distance_band": "0\u20135 km",
+          "n": 2142,
+          "MAE": 5.249,
+          "mean_actual": 22.22
+        },
+        {
+          "distance_band": "10\u201315 km",
+          "n": 2127,
+          "MAE": 6.889,
+          "mean_actual": 29.64
+        },
+        {
+          "distance_band": "15\u201325 km",
+          "n": 1490,
+          "MAE": 7.042,
+          "mean_actual": 29.5
+        },
+        {
+          "distance_band": "5\u201310 km",
+          "n": 2178,
+          "MAE": 5.795,
+          "mean_actual": 24.33
+        },
+        {
+          "distance_band": "invalid geo",
+          "n": 533,
+          "MAE": 6.481,
+          "mean_actual": 25.31
+        }
+      ],
+      "order_time": [
+        {
+          "order_time": "time missing",
+          "n": 317,
+          "MAE": 6.791,
+          "mean_actual": 25.71
+        },
+        {
+          "order_time": "time present",
+          "n": 8153,
+          "MAE": 6.171,
+          "mean_actual": 26.12
+        }
+      ]
+    }
+  },
+  "classification": {
+    "gt30": {
+      "threshold": 0.2680600976092946,
+      "precision": 0.46683974510266696,
+      "recall": 0.8133223684210527,
+      "F1": 0.5931923826660669,
+      "ROC_AUC": 0.7910963568452434,
+      "PR_AUC": 0.6084341106444813,
+      "brier": 0.15869679269409634,
+      "prevalence": 0.2871310507674144,
+      "predicted_positive_rate": 0.5002361275088548,
+      "confusion": {
+        "tn": 3779,
+        "fp": 2259,
+        "fn": 454,
+        "tp": 1978
+      },
+      "n": 8470
+    },
+    "sensitivity": {
+      "30": {
+        "threshold": 0.2680600976092946,
+        "precision": 0.46683974510266696,
+        "recall": 0.8133223684210527,
+        "F1": 0.5931923826660669,
+        "ROC_AUC": 0.7910963568452434,
+        "PR_AUC": 0.6084341106444813,
+        "brier": 0.15869679269409634,
+        "prevalence": 0.2871310507674144,
+        "predicted_positive_rate": 0.5002361275088548,
+        "confusion": {
+          "tn": 3779,
+          "fp": 2259,
+          "fn": 454,
+          "tp": 1978
+        },
+        "n": 8470
+      },
+      "35": {
+        "threshold": 0.21600350401271462,
+        "precision": 0.39279008636875706,
+        "recall": 0.7381792519407199,
+        "F1": 0.5127450980392156,
+        "ROC_AUC": 0.8313827326740044,
+        "PR_AUC": 0.539860692285323,
+        "brier": 0.10408009703535556,
+        "prevalence": 0.16729634002361274,
+        "predicted_positive_rate": 0.3144037780401417,
+        "confusion": {
+          "tn": 5436,
+          "fp": 1617,
+          "fn": 371,
+          "tp": 1046
+        },
+        "n": 8470
+      },
+      "40": {
+        "threshold": 0.20096745553019843,
+        "precision": 0.33570300157977884,
+        "recall": 0.576662143826323,
+        "F1": 0.4243634548177733,
+        "ROC_AUC": 0.8519479241110319,
+        "PR_AUC": 0.47207869431463756,
+        "brier": 0.0586263903502362,
+        "prevalence": 0.08701298701298701,
+        "predicted_positive_rate": 0.14946871310507673,
+        "confusion": {
+          "tn": 6892,
+          "fp": 841,
+          "fn": 312,
+          "tp": 425
+        },
+        "n": 8470
+      }
+    },
+    "variants_gt30": {
+      "primary": {
+        "cv": {
+          "ROC_AUC": 0.778447,
+          "PR_AUC": 0.595108
+        },
+        "test": {
+          "threshold": 0.26806,
+          "precision": 0.465538,
+          "recall": 0.802632,
+          "F1": 0.589283,
+          "ROC_AUC": 0.789923,
+          "PR_AUC": 0.606121,
+          "brier": 0.159105,
+          "prevalence": 0.287131,
+          "predicted_positive_rate": 0.495041,
+          "confusion": {
+            "tn": 3797,
+            "fp": 2241,
+            "fn": 480,
+            "tp": 1952
+          },
+          "n": 8470
+        }
+      },
+      "primary_no_month": {
+        "cv": {
+          "ROC_AUC": 0.778778,
+          "PR_AUC": 0.595059
+        },
+        "test": {
+          "threshold": 0.26806,
+          "precision": 0.46684,
+          "recall": 0.813322,
+          "F1": 0.593192,
+          "ROC_AUC": 0.791096,
+          "PR_AUC": 0.608434,
+          "brier": 0.158697,
+          "prevalence": 0.287131,
+          "predicted_positive_rate": 0.500236,
+          "confusion": {
+            "tn": 3779,
+            "fp": 2259,
+            "fn": 454,
+            "tp": 1978
+          },
+          "n": 8470
+        }
+      },
+      "primary_excl_missing_time_train": {
+        "cv": {
+          "ROC_AUC": 0.777751,
+          "PR_AUC": 0.591023
+        },
+        "test": {
+          "threshold": 0.277429,
+          "precision": 0.461628,
+          "recall": 0.818668,
+          "F1": 0.590363,
+          "ROC_AUC": 0.78812,
+          "PR_AUC": 0.602187,
+          "brier": 0.159433,
+          "prevalence": 0.287131,
+          "predicted_positive_rate": 0.509209,
+          "confusion": {
+            "tn": 3716,
+            "fp": 2322,
+            "fn": 441,
+            "tp": 1991
+          },
+          "n": 8470
+        }
+      },
+      "primary_excl_missing_festival_train": {
+        "cv": {
+          "ROC_AUC": 0.777947,
+          "PR_AUC": 0.595933
+        },
+        "test": {
+          "threshold": 0.269731,
+          "precision": 0.461683,
+          "recall": 0.810033,
+          "F1": 0.588147,
+          "ROC_AUC": 0.789415,
+          "PR_AUC": 0.605118,
+          "brier": 0.159491,
+          "prevalence": 0.287131,
+          "predicted_positive_rate": 0.503778,
+          "confusion": {
+            "tn": 3741,
+            "fp": 2297,
+            "fn": 462,
+            "tp": 1970
+          },
+          "n": 8470
+        }
+      },
+      "dispatch_comparison": {
+        "cv": {
+          "ROC_AUC": 0.979911,
+          "PR_AUC": 0.960407
+        },
+        "test": {
+          "threshold": 0.421989,
+          "precision": 0.887956,
+          "recall": 0.870066,
+          "F1": 0.87892,
+          "ROC_AUC": 0.982534,
+          "PR_AUC": 0.964337,
+          "brier": 0.045633,
+          "prevalence": 0.287131,
+          "predicted_positive_rate": 0.281346,
+          "confusion": {
+            "tn": 5771,
+            "fp": 267,
+            "fn": 316,
+            "tp": 2116
+          },
+          "n": 8470
+        }
+      },
+      "dispatch_no_rating": {
+        "cv": {
+          "ROC_AUC": 0.946375,
+          "PR_AUC": 0.886783
+        },
+        "test": {
+          "threshold": 0.412487,
+          "precision": 0.735842,
+          "recall": 0.844161,
+          "F1": 0.786289,
+          "ROC_AUC": 0.95168,
+          "PR_AUC": 0.892534,
+          "brier": 0.080492,
+          "prevalence": 0.287131,
+          "predicted_positive_rate": 0.329398,
+          "confusion": {
+            "tn": 5301,
+            "fp": 737,
+            "fn": 379,
+            "tp": 2053
+          },
+          "n": 8470
+        }
+      }
+    },
+    "per_1000_orders_test": {
+      "flagged": 500.2361275088548,
+      "late_caught": 233.53010625737897,
+      "false_alarms": 266.7060212514758,
+      "late_missed": 53.60094451003542,
+      "late_total": 287.1310507674144
+    },
+    "lift_precision_over_base": 1.6258769083139757,
+    "risk_deciles_test": [
+      {
+        "decile": 1,
+        "orders": 847,
+        "mean_pred": 0.6917040931974386,
+        "observed_late": 0.6977567886658795
+      },
+      {
+        "decile": 2,
+        "orders": 847,
+        "mean_pred": 0.5471228187847735,
+        "observed_late": 0.5242030696576151
+      },
+      {
+        "decile": 3,
+        "orders": 847,
+        "mean_pred": 0.4809952620284072,
+        "observed_late": 0.44510035419126326
+      },
+      {
+        "decile": 4,
+        "orders": 847,
+        "mean_pred": 0.3679442786203979,
+        "observed_late": 0.3412042502951594
+      },
+      {
+        "decile": 5,
+        "orders": 847,
+        "mean_pred": 0.30319365351013844,
+        "observed_late": 0.3270365997638725
+      },
+      {
+        "decile": 6,
+        "orders": 847,
+        "mean_pred": 0.22810691508191167,
+        "observed_late": 0.19952774498229045
+      },
+      {
+        "decile": 7,
+        "orders": 847,
+        "mean_pred": 0.189217033979136,
+        "observed_late": 0.15820543093270367
+      },
+      {
+        "decile": 8,
+        "orders": 847,
+        "mean_pred": 0.13421333529405613,
+        "observed_late": 0.1180637544273908
+      },
+      {
+        "decile": 9,
+        "orders": 847,
+        "mean_pred": 0.04547067070873824,
+        "observed_late": 0.03541912632821724
+      },
+      {
+        "decile": 10,
+        "orders": 847,
+        "mean_pred": 0.022692264144206425,
+        "observed_late": 0.024793388429752067
+      }
+    ],
+    "top_decile_capture": [
+      {
+        "top_deciles": 1,
+        "orders_share_pct": 10.0,
+        "observed_late_pct": 69.77567886658795,
+        "share_of_all_late_pct": 24.300986842105264
+      },
+      {
+        "top_deciles": 2,
+        "orders_share_pct": 20.0,
+        "observed_late_pct": 61.09799291617473,
+        "share_of_all_late_pct": 42.557565789473685
+      },
+      {
+        "top_deciles": 3,
+        "orders_share_pct": 30.0,
+        "observed_late_pct": 55.56867375049193,
+        "share_of_all_late_pct": 58.05921052631579
+      }
+    ],
+    "top_decile": {
+      "observed_late": 0.6977567886658795,
+      "lift": 2.430098684210526
+    },
+    "scenario_late_rate_reduction_pp": {
+      "10%": 2.33530106257379,
+      "20%": 4.67060212514758,
+      "30%": 7.005903187721369
+    }
+  },
+  "explainability": {
+    "data": "training split only (37,123 rows, 2022-02-11 \u2192 2022-03-29)",
+    "method": "grouped permutation importance (5 repeats, seed 42) on saved models; collinear features permuted together",
+    "eta_mae_increase_min": {
+      "baseline_score": 6.1284406090644055,
+      "groups": {
+        "Time of day": {
+          "mean": 1.0018397383400421,
+          "sd": 0.02080273057055327
+        },
+        "Delivery distance": {
+          "mean": 0.6422142243668627,
+          "sd": 0.009216249368736372
+        },
+        "Festival day": {
+          "mean": 0.39044942545136063,
+          "sd": 0.0037767349907793994
+        },
+        "City type": {
+          "mean": 0.2625753770127316,
+          "sd": 0.008443024593660687
+        },
+        "Restaurant location": {
+          "mean": 0.04222585846182536,
+          "sd": 0.0007457368704894439
+        },
+        "Calendar (day of week / month day / weekend)": {
+          "mean": 0.037920867291147076,
+          "sd": 0.0022676136807182625
+        },
+        "Order type": {
+          "mean": 0.010057088018089999,
+          "sd": 0.0004282067693591743
+        }
+      }
+    },
+    "late_auc_drop": {
+      "baseline_score": 0.8058070675635083,
+      "groups": {
+        "Time of day": {
+          "mean": 0.15977546117070945,
+          "sd": 0.0029629126974951418
+        },
+        "Delivery distance": {
+          "mean": 0.08494539787993909,
+          "sd": 0.0017335271144344722
+        },
+        "Festival day": {
+          "mean": 0.01819495957094952,
+          "sd": 0.0007644385957944954
+        },
+        "City type": {
+          "mean": 0.016854302325051296,
+          "sd": 0.0007257370446746117
+        },
+        "Restaurant location": {
+          "mean": 0.007694600972844934,
+          "sd": 0.00029124780687143085
+        },
+        "Calendar (day of week / month day / weekend)": {
+          "mean": 0.004269671954935372,
+          "sd": 0.0001529665901662699
+        },
+        "Order type": {
+          "mean": 0.0017030142209460753,
+          "sd": 4.1059084596451536e-05
+        }
+      }
+    },
+    "stage4_single_feature_test_importance": {
+      "order_hour_sin": 0.6758,
+      "distance_km": 0.5884,
+      "festival": 0.3577,
+      "city_type": 0.2772,
+      "order_time_band": 0.1433,
+      "order_hour": 0.0961,
+      "order_hour_cos": 0.0015,
+      "restaurant_lat": 0.001,
+      "restaurant_lon": -0.0,
+      "order_is_weekend": -0.0002,
+      "order_day_of_month": -0.0006,
+      "order_type": -0.0012,
+      "order_day_of_week": -0.0037
+    },
+    "shap": "not used \u2014 package not installed; grouped permutation + partial dependence chosen to avoid new dependencies",
+    "partial_dependence": {
+      "hour_eta": [
+        {
+          "value": 0,
+          "mean_prediction": 22.12567458437145
+        },
+        {
+          "value": 8,
+          "mean_prediction": 21.761200668073208
+        },
+        {
+          "value": 9,
+          "mean_prediction": 21.759302279881712
+        },
+        {
+          "value": 10,
+          "mean_prediction": 21.759909560894112
+        },
+        {
+          "value": 11,
+          "mean_prediction": 26.227149649875123
+        },
+        {
+          "value": 12,
+          "mean_prediction": 26.30978907634383
+        },
+        {
+          "value": 13,
+          "mean_prediction": 26.93332642562352
+        },
+        {
+          "value": 14,
+          "mean_prediction": 26.876685360414157
+        },
+        {
+          "value": 15,
+          "mean_prediction": 25.855752769228665
+        },
+        {
+          "value": 16,
+          "mean_prediction": 25.828079396805435
+        },
+        {
+          "value": 17,
+          "mean_prediction": 26.42203856736716
+        },
+        {
+          "value": 18,
+          "mean_prediction": 26.39923495291723
+        },
+        {
+          "value": 19,
+          "mean_prediction": 28.616498648354924
+        },
+        {
+          "value": 20,
+          "mean_prediction": 29.11043045943505
+        },
+        {
+          "value": 21,
+          "mean_prediction": 28.959746813773236
+        },
+        {
+          "value": 22,
+          "mean_prediction": 22.631731761925067
+        },
+        {
+          "value": 23,
+          "mean_prediction": 22.123371908203293
+        }
+      ],
+      "hour_late": [
+        {
+          "value": 0,
+          "mean_prediction": 0.10799592731230341
+        },
+        {
+          "value": 8,
+          "mean_prediction": 0.046571575460544454
+        },
+        {
+          "value": 9,
+          "mean_prediction": 0.04424827796934396
+        },
+        {
+          "value": 10,
+          "mean_prediction": 0.04425586325960273
+        },
+        {
+          "value": 11,
+          "mean_prediction": 0.3135485846346431
+        },
+        {
+          "value": 12,
+          "mean_prediction": 0.32899116902606834
+        },
+        {
+          "value": 13,
+          "mean_prediction": 0.3298023040828275
+        },
+        {
+          "value": 14,
+          "mean_prediction": 0.3297029299629705
+        },
+        {
+          "value": 15,
+          "mean_prediction": 0.3092462813579451
+        },
+        {
+          "value": 16,
+          "mean_prediction": 0.291779546680964
+        },
+        {
+          "value": 17,
+          "mean_prediction": 0.3211925549302927
+        },
+        {
+          "value": 18,
+          "mean_prediction": 0.3211707438368537
+        },
+        {
+          "value": 19,
+          "mean_prediction": 0.4039655559350814
+        },
+        {
+          "value": 20,
+          "mean_prediction": 0.41934736024001085
+        },
+        {
+          "value": 21,
+          "mean_prediction": 0.4123552492819413
+        },
+        {
+          "value": 22,
+          "mean_prediction": 0.13820305411694767
+        },
+        {
+          "value": 23,
+          "mean_prediction": 0.12435680060650917
+        }
+      ],
+      "distance_eta": [
+        {
+          "value": 2.0,
+          "mean_prediction": 22.69611934143651
+        },
+        {
+          "value": 4.0,
+          "mean_prediction": 23.11178776433425
+        },
+        {
+          "value": 6.0,
+          "mean_prediction": 24.213331669560755
+        },
+        {
+          "value": 8.0,
+          "mean_prediction": 24.133609987649866
+        },
+        {
+          "value": 10.0,
+          "mean_prediction": 24.51987700280406
+        },
+        {
+          "value": 12.0,
+          "mean_prediction": 28.517183216520742
+        },
+        {
+          "value": 14.0,
+          "mean_prediction": 28.646699026421942
+        },
+        {
+          "value": 16.0,
+          "mean_prediction": 28.646699026421942
+        },
+        {
+          "value": 18.0,
+          "mean_prediction": 28.599662426264775
+        },
+        {
+          "value": 20.0,
+          "mean_prediction": 28.53721988806624
+        }
+      ],
+      "festival_eta": [
+        {
+          "value": "No",
+          "mean_prediction": 26.070904859653023
+        },
+        {
+          "value": "Yes",
+          "mean_prediction": 40.22150826920283
+        }
+      ],
+      "city_type_eta": [
+        {
+          "value": "Urban",
+          "mean_prediction": 23.95774545138396
+        },
+        {
+          "value": "Metropolitan",
+          "mean_prediction": 26.997614170964628
+        },
+        {
+          "value": "Semi-Urban",
+          "mean_prediction": 41.736857144837664
+        }
+      ],
+      "festival_late": [
+        {
+          "value": "No",
+          "mean_prediction": 0.291757927687484
+        },
+        {
+          "value": "Yes",
+          "mean_prediction": 0.9015311973080661
+        }
+      ],
+      "city_type_late": [
+        {
+          "value": "Urban",
+          "mean_prediction": 0.22542255222877688
+        },
+        {
+          "value": "Metropolitan",
+          "mean_prediction": 0.32134490935557347
+        },
+        {
+          "value": "Semi-Urban",
+          "mean_prediction": 0.8038295849975461
+        }
+      ]
+    },
+    "partial_dependence_sample": "5,000 training rows (seed 42)"
+  },
+  "observed": {
+    "time_band": [
+      {
+        "time_band": "(order time missing)",
+        "orders": 1731,
+        "share_pct": 3.7966354484241003,
+        "mean_eta": 26.31426920854997,
+        "median_eta": 25.0,
+        "late30_pct": 30.155979202772965
+      },
+      {
+        "time_band": "afternoon_15_18",
+        "orders": 10340,
+        "share_pct": 22.678920009650604,
+        "mean_eta": 26.687911025145066,
+        "median_eta": 26.0,
+        "late30_pct": 32.495164410058024
+      },
+      {
+        "time_band": "evening_19_23",
+        "orders": 22907,
+        "share_pct": 50.24236176606058,
+        "mean_eta": 27.777928144235386,
+        "median_eta": 27.0,
+        "late30_pct": 35.53498930457938
+      },
+      {
+        "time_band": "midday_11_14",
+        "orders": 4429,
+        "share_pct": 9.714210514772004,
+        "mean_eta": 26.881914653420637,
+        "median_eta": 27.0,
+        "late30_pct": 32.016256491307296
+      },
+      {
+        "time_band": "morning_08_10",
+        "orders": 5756,
+        "share_pct": 12.624745026648828,
+        "mean_eta": 19.535267546907576,
+        "median_eta": 19.0,
+        "late30_pct": 2.1542738012508686
+      },
+      {
+        "time_band": "night_00_07",
+        "orders": 430,
+        "share_pct": 0.9431272344438839,
+        "mean_eta": 22.169767441860465,
+        "median_eta": 21.0,
+        "late30_pct": 9.767441860465116
+      }
+    ],
+    "festival": [
+      {
+        "festival": "(missing)",
+        "orders": 228,
+        "share_pct": 0.5000767661702454,
+        "mean_eta": 11.166666666666666,
+        "median_eta": 11.0,
+        "late30_pct": 0.0
+      },
+      {
+        "festival": "No",
+        "orders": 44469,
+        "share_pct": 97.53470927554669,
+        "mean_eta": 25.984843374035844,
+        "median_eta": 25.0,
+        "late30_pct": 28.58170860599519
+      },
+      {
+        "festival": "Yes",
+        "orders": 896,
+        "share_pct": 1.9652139582830697,
+        "mean_eta": 45.517857142857146,
+        "median_eta": 45.0,
+        "late30_pct": 100.0
+      }
+    ],
+    "city_type": [
+      {
+        "city_type": "(missing)",
+        "orders": 1200,
+        "share_pct": 2.631982979843397,
+        "mean_eta": 22.058333333333334,
+        "median_eta": 21.0,
+        "late30_pct": 15.416666666666668
+      },
+      {
+        "city_type": "Metropolitan",
+        "orders": 34093,
+        "share_pct": 74.77682977650078,
+        "mean_eta": 27.315225999472034,
+        "median_eta": 27.0,
+        "late30_pct": 33.33822192238876
+      },
+      {
+        "city_type": "Semi-Urban",
+        "orders": 164,
+        "share_pct": 0.35970434057859757,
+        "mean_eta": 49.73170731707317,
+        "median_eta": 49.0,
+        "late30_pct": 100.0
+      },
+      {
+        "city_type": "Urban",
+        "orders": 10136,
+        "share_pct": 22.231482903077225,
+        "mean_eta": 22.984017363851617,
+        "median_eta": 22.0,
+        "late30_pct": 18.65627466456196
+      }
+    ],
+    "distance_band": [
+      {
+        "distance_band": "(invalid location)",
+        "orders": 3640,
+        "share_pct": 7.983681705524971,
+        "mean_eta": 26.099450549450548,
+        "median_eta": 25.0,
+        "late30_pct": 28.763736263736263
+      },
+      {
+        "distance_band": "0\u20135 km",
+        "orders": 11303,
+        "share_pct": 24.79108635097493,
+        "mean_eta": 22.188003184995136,
+        "median_eta": 21.0,
+        "late30_pct": 12.394939396620366
+      },
+      {
+        "distance_band": "10\u201315 km",
+        "orders": 11293,
+        "share_pct": 24.769153159476236,
+        "mean_eta": 29.834941999468697,
+        "median_eta": 29.0,
+        "late30_pct": 45.51492074736562
+      },
+      {
+        "distance_band": "15\u201325 km",
+        "orders": 8050,
+        "share_pct": 17.656219156449456,
+        "mean_eta": 29.860993788819876,
+        "median_eta": 29.0,
+        "late30_pct": 45.06832298136646
+      },
+      {
+        "distance_band": "5\u201310 km",
+        "orders": 11307,
+        "share_pct": 24.79985962757441,
+        "mean_eta": 24.38754753692403,
+        "median_eta": 25.0,
+        "late30_pct": 21.137348545149024
+      }
+    ],
+    "traffic_density": [
+      {
+        "traffic_density": "(missing)",
+        "orders": 601,
+        "share_pct": 1.318184809071568,
+        "mean_eta": 26.54242928452579,
+        "median_eta": 26.0,
+        "late30_pct": 30.948419301164726
+      },
+      {
+        "traffic_density": "High",
+        "orders": 4425,
+        "share_pct": 9.705437238172527,
+        "mean_eta": 27.24,
+        "median_eta": 27.0,
+        "late30_pct": 33.559322033898304
+      },
+      {
+        "traffic_density": "Jam",
+        "orders": 14143,
+        "share_pct": 31.020112736604304,
+        "mean_eta": 31.17662447854062,
+        "median_eta": 31.0,
+        "late30_pct": 50.639892526338116
+      },
+      {
+        "traffic_density": "Low",
+        "orders": 15477,
+        "share_pct": 33.946000482530216,
+        "mean_eta": 21.266976804290238,
+        "median_eta": 20.0,
+        "late30_pct": 7.869742198100408
+      },
+      {
+        "traffic_density": "Medium",
+        "orders": 10947,
+        "share_pct": 24.01026473362139,
+        "mean_eta": 26.699643738010415,
+        "median_eta": 27.0,
+        "late30_pct": 32.47465058920252
+      }
+    ],
+    "weather": [
+      {
+        "weather": "(missing)",
+        "orders": 616,
+        "share_pct": 1.3510845963196105,
+        "mean_eta": 26.545454545454547,
+        "median_eta": 26.0,
+        "late30_pct": 30.844155844155846
+      },
+      {
+        "weather": "Cloudy",
+        "orders": 7536,
+        "share_pct": 16.528853113416535,
+        "mean_eta": 28.917330148619957,
+        "median_eta": 28.0,
+        "late30_pct": 43.77653927813164
+      },
+      {
+        "weather": "Fog",
+        "orders": 7654,
+        "share_pct": 16.787664773101135,
+        "mean_eta": 28.916122288999215,
+        "median_eta": 28.0,
+        "late30_pct": 43.7940945910635
+      },
+      {
+        "weather": "Sandstorms",
+        "orders": 7495,
+        "share_pct": 16.438927028271884,
+        "mean_eta": 25.875517011340893,
+        "median_eta": 26.0,
+        "late30_pct": 25.950633755837227
+      },
+      {
+        "weather": "Stormy",
+        "orders": 7586,
+        "share_pct": 16.638519070910007,
+        "mean_eta": 25.870814658581597,
+        "median_eta": 26.0,
+        "late30_pct": 25.53387819667809
+      },
+      {
+        "weather": "Sunny",
+        "orders": 7284,
+        "share_pct": 15.97613668764942,
+        "mean_eta": 21.856946732564523,
+        "median_eta": 20.0,
+        "late30_pct": 12.520593080724876
+      },
+      {
+        "weather": "Windy",
+        "orders": 7422,
+        "share_pct": 16.278814730331412,
+        "mean_eta": 26.118835893290218,
+        "median_eta": 26.0,
+        "late30_pct": 26.556184316895713
+      }
+    ],
+    "multiple_deliveries": [
+      {
+        "multiple_deliveries": "(missing)",
+        "orders": 993,
+        "share_pct": 2.177965915820411,
+        "mean_eta": 22.76737160120846,
+        "median_eta": 21.0,
+        "late30_pct": 18.63041289023162
+      },
+      {
+        "multiple_deliveries": "0.0",
+        "orders": 14095,
+        "share_pct": 30.914833417410566,
+        "mean_eta": 22.876268180205745,
+        "median_eta": 22.0,
+        "late30_pct": 18.119900673997872
+      },
+      {
+        "multiple_deliveries": "1.0",
+        "orders": 28159,
+        "share_pct": 61.76167394117518,
+        "mean_eta": 26.855889768812812,
+        "median_eta": 26.0,
+        "late30_pct": 30.260307539330235
+      },
+      {
+        "multiple_deliveries": "2.0",
+        "orders": 1985,
+        "share_pct": 4.353738512490953,
+        "mean_eta": 40.454911838790935,
+        "median_eta": 40.0,
+        "late30_pct": 100.0
+      },
+      {
+        "multiple_deliveries": "3.0",
+        "orders": 361,
+        "share_pct": 0.7917882131028886,
+        "mean_eta": 47.81994459833795,
+        "median_eta": 48.0,
+        "late30_pct": 100.0
+      }
+    ],
+    "vehicle_type": [
+      {
+        "vehicle_type": "bicycle",
+        "orders": 68,
+        "share_pct": 0.14914570219112583,
+        "mean_eta": 26.426470588235293,
+        "median_eta": 26.0,
+        "late30_pct": 30.88235294117647
+      },
+      {
+        "vehicle_type": "electric_scooter",
+        "orders": 3814,
+        "share_pct": 8.365319237602263,
+        "mean_eta": 24.470110120608286,
+        "median_eta": 24.0,
+        "late30_pct": 23.43995804929208
+      },
+      {
+        "vehicle_type": "motorcycle",
+        "orders": 26435,
+        "share_pct": 57.980391726800164,
+        "mean_eta": 27.60567429544165,
+        "median_eta": 26.0,
+        "late30_pct": 33.94363533194628
+      },
+      {
+        "vehicle_type": "scooter",
+        "orders": 15276,
+        "share_pct": 33.505143333406444,
+        "mean_eta": 24.48075412411626,
+        "median_eta": 24.0,
+        "late30_pct": 24.3388321550144
+      }
+    ],
+    "vehicle_condition": [
+      {
+        "vehicle_condition": "0",
+        "orders": 15009,
+        "share_pct": 32.91952712039129,
+        "mean_eta": 30.072223332667065,
+        "median_eta": 28.0,
+        "late30_pct": 41.68165767206343
+      },
+      {
+        "vehicle_condition": "1",
+        "orders": 15030,
+        "share_pct": 32.96558682253855,
+        "mean_eta": 24.355089820359282,
+        "median_eta": 24.0,
+        "late30_pct": 23.87890884896873
+      },
+      {
+        "vehicle_condition": "2",
+        "orders": 15034,
+        "share_pct": 32.974360099138025,
+        "mean_eta": 24.455434348809366,
+        "median_eta": 24.0,
+        "late30_pct": 23.959026207263538
+      },
+      {
+        "vehicle_condition": "3",
+        "orders": 520,
+        "share_pct": 1.1405259579321387,
+        "mean_eta": 26.49230769230769,
+        "median_eta": 26.0,
+        "late30_pct": 30.57692307692308
+      }
+    ],
+    "order_type": [
+      {
+        "order_type": "Buffet",
+        "orders": 11280,
+        "share_pct": 24.740640010527933,
+        "mean_eta": 26.283510638297873,
+        "median_eta": 26.0,
+        "late30_pct": 29.671985815602834
+      },
+      {
+        "order_type": "Drinks",
+        "orders": 11322,
+        "share_pct": 24.83275941482245,
+        "mean_eta": 26.187952658540894,
+        "median_eta": 25.0,
+        "late30_pct": 29.83571807101219
+      },
+      {
+        "order_type": "Meal",
+        "orders": 11458,
+        "share_pct": 25.131050819204702,
+        "mean_eta": 26.419270378774655,
+        "median_eta": 26.0,
+        "late30_pct": 30.031419095828245
+      },
+      {
+        "order_type": "Snack",
+        "orders": 11533,
+        "share_pct": 25.295549755444913,
+        "mean_eta": 26.28630885285702,
+        "median_eta": 26.0,
+        "late30_pct": 29.827451660452613
+      }
+    ]
+  },
+  "observed_overall": {
+    "orders": 45593,
+    "mean_eta": 26.29460662821047,
+    "median_eta": 26.0,
+    "late30_pct": 29.842300353124386
+  },
+  "observed_peak": {
+    "evening_share_pct": 50.24236176606058,
+    "evening_late_pct": 35.53498930457938,
+    "peak_15_23_share_pct": 72.9212817757112,
+    "peak_15_23_share_of_late_pct": 84.5215346170807,
+    "nonpeak_timed_late_pct": 14.922279792746112,
+    "afternoon_late_pct": 32.495164410058024,
+    "scenario_evening_to_afternoon_pp": 1.527279820560191
+  },
+  "geography": {
+    "k": 22,
+    "silhouette_stage4": 0.94822,
+    "silhouette_recomputed_zones": 0.9482752340890349,
+    "silhouette_of_city_labels": 0.9482752340890349,
+    "min_zone_purity_by_city": 1.0,
+    "min_city_purity_by_zone": 1.0,
+    "zones_equal_cities": true,
+    "zone_late30_range_pct": [
+      28.673323823109843,
+      34.33098591549296
+    ],
+    "zone_median_eta_range": [
+      25.0,
+      27.0
+    ],
+    "zone_orders_range": [
+      478,
+      3443
+    ],
+    "zone_late_chi2_p": 0.10334264162049636,
+    "time_band_late30_range_pct": [
+      2.1542738012508686,
+      35.53498930457938
+    ],
+    "delivery_point_radius_km": {
+      "median": 5.68113759044071,
+      "p95": 13.212622171114022,
+      "max": 44.99499436842281
+    },
+    "distance_km": {
+      "median": 9.193,
+      "min": 1.4651,
+      "max": 20.9695
+    },
+    "lat_offset_equals_lon_offset_share": 0.9822,
+    "geo_invalid_rows": 3640,
+    "geo_invalid_top_cities": {
+      "VAD": 0.5022,
+      "DEH": 0.3324,
+      "BHP": 0.3082
+    },
+    "unique_restaurant_locations_valid": 388
+  },
+  "rider": {
+    "ids": 1320,
+    "orders_per_id": {
+      "min": 5.0,
+      "50%": 41.0,
+      "max": 67.0
+    },
+    "distinct_ages_per_id": {
+      "min": 4.0,
+      "50%": 17.0,
+      "max": 22.0
+    },
+    "ids_with_multiple_ages_pct": 100.0,
+    "ids_with_multiple_vehicle_types_pct": 100.0,
+    "max_valid_restaurant_locations_per_id": 1,
+    "id_suffixes": [
+      "01",
+      "02",
+      "03"
+    ],
+    "verdict": "not feasible"
+  },
+  "dispatch_comparison": {
+    "persisted_as_model": false,
+    "inputs": "14 placement features (incl. order_month) + rider age, rider rating, vehicle condition, multiple deliveries, weather, traffic, vehicle type",
+    "eta_MAE": 3.498161,
+    "eta_R2": 0.779387,
+    "eta_MAE_no_rating": 3.6708,
+    "eta_R2_no_rating": 0.761862,
+    "late_ROC_AUC": 0.982534,
+    "late_ROC_AUC_no_rating": 0.95168,
+    "late_PR_AUC_no_rating": 0.892534,
+    "late_F1_no_rating": 0.786289,
+    "mae_reduction_no_rating_pct": 40.73594634587634,
+    "placement_variant_same_protocol_MAE": 6.187119
+  },
+  "data": {
+    "rows": 45593,
+    "cols": 20,
+    "dates": [
+      "2022-02-11",
+      "2022-04-06"
+    ],
+    "rows_any_missing_raw": 4225,
+    "duplicates": 0,
+    "sign_corrected": 431,
+    "geo_invalid": 3640,
+    "rider_sentinel": 91,
+    "missing_order_time": 1731,
+    "missing_time_target_p": 0.778841507396588,
+    "traffic_hour_consistency_pct": 97.48,
+    "festival_missing": 228,
+    "rows_retained": 45593,
+    "split": {
+      "cut_date": "2022-03-30",
+      "train_rows": 37123,
+      "test_rows": 8470,
+      "train_dates": [
+        "2022-02-11",
+        "2022-03-29"
+      ],
+      "test_dates": [
+        "2022-03-30",
+        "2022-04-06"
+      ]
+    },
+    "late30_overall_pct": 29.842300353124386,
+    "target_quantiles": {
+      "0.5": 26.0,
+      "0.75": 32.0,
+      "0.8": 34.0,
+      "0.85": 37.0,
+      "0.9": 40.0,
+      "0.95": 44.0
+    },
+    "primary_features": 13,
+    "target_outliers_iqr": 270
+  },
+  "stage4_classifiers": {
+    "baseline_prior": {
+      "cv": {
+        "ROC_AUC": 0.5,
+        "PR_AUC": 0.30027
+      },
+      "test": {
+        "threshold": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "F1": 0.0,
+        "ROC_AUC": 0.5,
+        "PR_AUC": 0.287131,
+        "brier": 0.204879,
+        "prevalence": 0.287131,
+        "predicted_positive_rate": 0.0,
+        "confusion": {
+          "tn": 6038,
+          "fp": 0,
+          "fn": 2432,
+          "tp": 0
+        },
+        "n": 8470
+      }
+    },
+    "logistic": {
+      "cv": {
+        "ROC_AUC": 0.745539,
+        "PR_AUC": 0.5599
+      },
+      "test": {
+        "threshold": 0.212573,
+        "precision": 0.402354,
+        "recall": 0.899671,
+        "F1": 0.556036,
+        "ROC_AUC": 0.765552,
+        "PR_AUC": 0.570184,
+        "brier": 0.166037,
+        "prevalence": 0.287131,
+        "predicted_positive_rate": 0.642031,
+        "confusion": {
+          "tn": 2788,
+          "fp": 3250,
+          "fn": 244,
+          "tp": 2188
+        },
+        "n": 8470
+      }
+    },
+    "hist_gbm": {
+      "cv": {
+        "ROC_AUC": 0.778778,
+        "PR_AUC": 0.595059
+      },
+      "test": {
+        "threshold": 0.26806,
+        "precision": 0.46684,
+        "recall": 0.813322,
+        "F1": 0.593192,
+        "ROC_AUC": 0.791096,
+        "PR_AUC": 0.608434,
+        "brier": 0.158697,
+        "prevalence": 0.287131,
+        "predicted_positive_rate": 0.500236,
+        "confusion": {
+          "tn": 3779,
+          "fp": 2259,
+          "fn": 454,
+          "tp": 1978
+        },
+        "n": 8470
+      }
+    }
+  },
+  "challenge": {
+    "network": {
+      "late_pct": 29.842300353124386,
+      "mean_eta": 26.29460662821047,
+      "orders": 45593
+    },
+    "by_hour": [
+      {
+        "order_hour": 0,
+        "orders": 430,
+        "mean_eta": 22.169767441860465,
+        "late_pct": 9.767441860465116,
+        "gap_vs_network_pp": -20.07485849265927
+      },
+      {
+        "order_hour": 8,
+        "orders": 1818,
+        "mean_eta": 19.584158415841586,
+        "late_pct": 2.7502750275027505,
+        "gap_vs_network_pp": -27.092025325621634
+      },
+      {
+        "order_hour": 9,
+        "orders": 1947,
+        "mean_eta": 19.54391371340524,
+        "late_pct": 1.5921931176168465,
+        "gap_vs_network_pp": -28.25010723550754
+      },
+      {
+        "order_hour": 10,
+        "orders": 1991,
+        "mean_eta": 19.48216976393772,
+        "late_pct": 2.15971873430437,
+        "gap_vs_network_pp": -27.682581618820016
+      },
+      {
+        "order_hour": 11,
+        "orders": 1962,
+        "mean_eta": 26.380733944954127,
+        "late_pct": 29.96941896024465,
+        "gap_vs_network_pp": 0.1271186071202628
+      },
+      {
+        "order_hour": 12,
+        "orders": 892,
+        "mean_eta": 26.826233183856502,
+        "late_pct": 31.950672645739907,
+        "gap_vs_network_pp": 2.1083722926155204
+      },
+      {
+        "order_hour": 13,
+        "orders": 784,
+        "mean_eta": 27.538265306122447,
+        "late_pct": 35.45918367346938,
+        "gap_vs_network_pp": 5.616883320344996
+      },
+      {
+        "order_hour": 14,
+        "orders": 791,
+        "mean_eta": 27.537294563843236,
+        "late_pct": 33.75474083438685,
+        "gap_vs_network_pp": 3.9124404812624647
+      },
+      {
+        "order_hour": 15,
+        "orders": 873,
+        "mean_eta": 23.194730813287514,
+        "late_pct": 15.807560137457044,
+        "gap_vs_network_pp": -14.034740215667343
+      },
+      {
+        "order_hour": 16,
+        "orders": 709,
+        "mean_eta": 22.943582510578278,
+        "late_pct": 14.809590973201692,
+        "gap_vs_network_pp": -15.032709379922695
+      },
+      {
+        "order_hour": 17,
+        "orders": 4278,
+        "mean_eta": 27.406732117812062,
+        "late_pct": 36.11500701262272,
+        "gap_vs_network_pp": 6.272706659498333
+      },
+      {
+        "order_hour": 18,
+        "orders": 4480,
+        "mean_eta": 27.274776785714284,
+        "late_pct": 35.08928571428571,
+        "gap_vs_network_pp": 5.246985361161322
+      },
+      {
+        "order_hour": 19,
+        "orders": 4595,
+        "mean_eta": 30.822633297062023,
+        "late_pct": 49.42328618063112,
+        "gap_vs_network_pp": 19.580985827506737
+      },
+      {
+        "order_hour": 20,
+        "orders": 4539,
+        "mean_eta": 31.19035029742234,
+        "late_pct": 50.583829037232874,
+        "gap_vs_network_pp": 20.741528684108488
+      },
+      {
+        "order_hour": 21,
+        "orders": 4686,
+        "mean_eta": 31.08984208279983,
+        "late_pct": 50.149381135296636,
+        "gap_vs_network_pp": 20.30708078217225
+      },
+      {
+        "order_hour": 22,
+        "orders": 4576,
+        "mean_eta": 23.19624125874126,
+        "late_pct": 14.64160839160839,
+        "gap_vs_network_pp": -15.200691961515997
+      },
+      {
+        "order_hour": 23,
+        "orders": 4511,
+        "mean_eta": 22.450232764353803,
+        "late_pct": 12.258922633562403,
+        "gap_vs_network_pp": -17.583377719561984
+      }
+    ],
+    "peak_hours": [
+      20,
+      21,
+      19
+    ],
+    "hours_above_network": [
+      11,
+      12,
+      13,
+      14,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "by_day_of_week": [
+      {
+        "order_day_of_week": 0,
+        "orders": 6207,
+        "mean_eta": 26.25406798775576,
+        "late_pct": 29.531174480425328,
+        "day": "Mon"
+      },
+      {
+        "order_day_of_week": 1,
+        "orders": 6375,
+        "mean_eta": 25.32219607843137,
+        "late_pct": 25.458823529411767,
+        "day": "Tue"
+      },
+      {
+        "order_day_of_week": 2,
+        "orders": 7093,
+        "mean_eta": 27.759481178626814,
+        "late_pct": 36.16241364725786,
+        "day": "Wed"
+      },
+      {
+        "order_day_of_week": 3,
+        "orders": 6348,
+        "mean_eta": 25.183207309388784,
+        "late_pct": 25.23629489603025,
+        "day": "Thu"
+      },
+      {
+        "order_day_of_week": 4,
+        "orders": 7031,
+        "mean_eta": 26.817380173517282,
+        "late_pct": 32.24292419286019,
+        "day": "Fri"
+      },
+      {
+        "order_day_of_week": 5,
+        "orders": 6290,
+        "mean_eta": 26.099841017488075,
+        "late_pct": 29.030206677265504,
+        "day": "Sat"
+      },
+      {
+        "order_day_of_week": 6,
+        "orders": 6249,
+        "mean_eta": 26.401024163866218,
+        "late_pct": 30.244839174267884,
+        "day": "Sun"
+      }
+    ],
+    "dates_per_weekday": [
+      6,
+      7
+    ],
+    "day_of_week_chi2_p": 1.3817500615944728e-57,
+    "weather_traffic": {
+      "late_pct": {
+        "Low": {
+          "Sunny": 10.55,
+          "Windy": 2.98,
+          "Stormy": 2.82,
+          "Sandstorms": 2.03,
+          "Cloudy": 14.32,
+          "Fog": 14.63
+        },
+        "Medium": {
+          "Sunny": 6.55,
+          "Windy": 31.05,
+          "Stormy": 31.13,
+          "Sandstorms": 31.08,
+          "Cloudy": 48.31,
+          "Fog": 45.9
+        },
+        "High": {
+          "Sunny": 17.14,
+          "Windy": 34.15,
+          "Stormy": 38.74,
+          "Sandstorms": 38.37,
+          "Cloudy": 37.63,
+          "Fog": 35.31
+        },
+        "Jam": {
+          "Sunny": 17.82,
+          "Windy": 45.56,
+          "Stormy": 43.35,
+          "Sandstorms": 44.52,
+          "Cloudy": 74.84,
+          "Fog": 76.08
+        }
+      },
+      "orders": {
+        "Low": {
+          "Sunny": 2475,
+          "Windy": 2484,
+          "Stormy": 2699,
+          "Sandstorms": 2609,
+          "Cloudy": 2605,
+          "Fog": 2597
+        },
+        "Medium": {
+          "Sunny": 1785,
+          "Windy": 1852,
+          "Stormy": 1831,
+          "Sandstorms": 1786,
+          "Cloudy": 1838,
+          "Fog": 1852
+        },
+        "High": {
+          "Sunny": 735,
+          "Windy": 735,
+          "Stormy": 733,
+          "Sandstorms": 701,
+          "Cloudy": 744,
+          "Fog": 776
+        },
+        "Jam": {
+          "Sunny": 2289,
+          "Windy": 2351,
+          "Stormy": 2323,
+          "Sandstorms": 2399,
+          "Cloudy": 2349,
+          "Fog": 2429
+        }
+      },
+      "weather_spread_within_traffic_pp": {
+        "Low": 12.600838335001335,
+        "Medium": 41.75876226442699,
+        "High": 21.60202689534204,
+        "Jam": 58.256314185246325
+      },
+      "traffic_spread_within_weather_pp": {
+        "Sunny": 11.269755608665484,
+        "Windy": 42.576016920884044,
+        "Stormy": 40.53325979536433,
+        "Sandstorms": 42.48711972904259,
+        "Cloudy": 60.5217395567518,
+        "Fog": 61.44842364111106
+      },
+      "fog_minus_sunny_within_traffic_pp": {
+        "Low": 4.086813456085693,
+        "Medium": 39.34170644499701,
+        "High": 18.16642120765832,
+        "Jam": 58.256314185246325
+      }
+    },
+    "distance_only_model": {
+      "MAE": 7.221678589046835,
+      "RMSE": 8.894099068564515,
+      "R2": 0.0874772896248448,
+      "n": 8470,
+      "coef_min_per_km": 0.5418856831016365,
+      "note": "additional analysis: linear regression on distance only, fitted on training rows"
+    },
+    "distance_pearson_r2_all_valid": 0.10274505823144052,
+    "mean_baseline": {
+      "MAE": 7.511507954618205,
+      "RMSE": 9.313686397734742,
+      "R2": -0.0006517929129059574,
+      "n": 8470,
+      "train_mean": 26.33876572475285
+    },
+    "rider_age_band": [
+      {
+        "age_band": "20\u201324",
+        "orders": 10782,
+        "mean_eta": 22.998794286774253,
+        "late_pct": 17.807456872565385
+      },
+      {
+        "age_band": "25\u201329",
+        "orders": 10853,
+        "mean_eta": 22.98065051137934,
+        "late_pct": 18.07795079701465
+      },
+      {
+        "age_band": "30\u201334",
+        "orders": 10901,
+        "mean_eta": 29.562058526740667,
+        "late_pct": 41.354004219796344
+      },
+      {
+        "age_band": "35\u201339",
+        "orders": 11112,
+        "mean_eta": 29.507649388048957,
+        "late_pct": 41.63966882649388
+      }
+    ],
+    "rider_rating_band": [
+      {
+        "rating_band": "4.5\u20134.7",
+        "orders": 17385,
+        "mean_eta": 24.23002588438309,
+        "late_pct": 16.39344262295082
+      },
+      {
+        "rating_band": "4.8\u20135.0",
+        "orders": 18185,
+        "mean_eta": 24.394226010448172,
+        "late_pct": 18.526257904866647
+      },
+      {
+        "rating_band": "< 4.5",
+        "orders": 8024,
+        "mean_eta": 35.06119142572283,
+        "late_pct": 84.58374875373879
+      }
+    ],
+    "rating_hi_vs_lo_similar_routes": {
+      "strata_used": 14,
+      "weight": 7435,
+      "eta_diff_min": -8.933349789184447,
+      "late_diff_pp": -58.91055104533419
+    },
+    "age_old_vs_young_similar_routes": {
+      "strata_used": 14,
+      "weight": 9871,
+      "eta_diff_min": 6.594094884658224,
+      "late_diff_pp": 24.24088784994488
+    },
+    "rider_note": "age is the only experience proxy (no tenure field); rating may include feedback on the same order; rows are orders, not riders; Tier B data, excluded from the placement models",
+    "rider_profiles": {
+      "label": "order-level rider-attribute profiles \u2014 NOT individual rider segments",
+      "features": [
+        "delivery_person_age",
+        "delivery_person_rating"
+      ],
+      "rows": 43594,
+      "scan": [
+        {
+          "k": 2,
+          "inertia": 52732.86274267243,
+          "silhouette": 0.404823362000088
+        },
+        {
+          "k": 3,
+          "inertia": 30087.21598997008,
+          "silhouette": 0.4575296681346925
+        },
+        {
+          "k": 4,
+          "inertia": 24911.153872063027,
+          "silhouette": 0.3659405134488338
+        },
+        {
+          "k": 5,
+          "inertia": 20873.57929173568,
+          "silhouette": 0.36001817571107453
+        },
+        {
+          "k": 6,
+          "inertia": 16997.685490840857,
+          "silhouette": 0.3666042813383556
+        },
+        {
+          "k": 7,
+          "inertia": 14742.65320067535,
+          "silhouette": 0.3583314405488675
+        },
+        {
+          "k": 8,
+          "inertia": 12616.469698254972,
+          "silhouette": 0.3661814298543527
+        }
+      ],
+      "k_selected": 3,
+      "silhouette": 0.4575296681346925,
+      "profiles": [
+        {
+          "profile": 0,
+          "orders": 16962,
+          "mean_age": 34.575521754510085,
+          "mean_rating": 4.745460440985733,
+          "mean_eta": 27.605353142318123,
+          "late_pct": 26.954368588609835,
+          "multi_delivery_mean": 0.7786264132788069,
+          "motorcycle_pct": 57.1748614550171,
+          "name": "Older, higher-rated"
+        },
+        {
+          "profile": 1,
+          "orders": 19948,
+          "mean_age": 24.452476438740725,
+          "mean_rating": 4.737181672348105,
+          "mean_eta": 22.145077200721875,
+          "late_pct": 13.324644074593945,
+          "multi_delivery_mean": 0.647261506814091,
+          "motorcycle_pct": 57.419290154401445,
+          "name": "Younger, higher-rated"
+        },
+        {
+          "profile": 2,
+          "orders": 6684,
+          "mean_age": 32.04727707959306,
+          "mean_rating": 4.051600837821664,
+          "mean_eta": 35.336175942549374,
+          "late_pct": 86.41532016756433,
+          "multi_delivery_mean": 0.9404978749241044,
+          "motorcycle_pct": 64.84141232794734,
+          "name": "Older, lower-rated"
+        }
+      ]
+    },
+    "zones_vs_network": {
+      "network_valid_mean_eta": 26.311539103282243,
+      "network_valid_late_pct": 29.93588062832217,
+      "median_zone_orders": 2070.0,
+      "table": [
+        {
+          "zone": 19,
+          "city": "ALH",
+          "orders": 568,
+          "demand_share_pct": 1.3538960265058517,
+          "mean_eta": 27.404929577464788,
+          "eta_vs_network_min": 1.093390474182545,
+          "late_pct": 34.33098591549296,
+          "late_vs_network_pp": 4.395105287170789,
+          "late_p": 0.02402709815672342,
+          "eta_p": 0.006402762613722471,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": false,
+          "above_benchmark": true,
+          "candidate_flag": false
+        },
+        {
+          "zone": 16,
+          "city": "DEH",
+          "orders": 492,
+          "demand_share_pct": 1.172740924367745,
+          "mean_eta": 26.63821138211382,
+          "eta_vs_network_min": 0.3266722788315768,
+          "late_pct": 33.53658536585366,
+          "late_vs_network_pp": 3.6007047375314905,
+          "late_p": 0.08824594027464448,
+          "eta_p": 0.458033340814064,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": false,
+          "above_benchmark": true,
+          "candidate_flag": false
+        },
+        {
+          "zone": 17,
+          "city": "AURG",
+          "orders": 555,
+          "demand_share_pct": 1.3229089695611755,
+          "mean_eta": 26.854054054054053,
+          "eta_vs_network_min": 0.5425149507718103,
+          "late_pct": 33.153153153153156,
+          "late_vs_network_pp": 3.2172725248309852,
+          "late_p": 0.10536639634393431,
+          "eta_p": 0.15485364947272082,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": false,
+          "above_benchmark": true,
+          "candidate_flag": false
+        },
+        {
+          "zone": 4,
+          "city": "JAP",
+          "orders": 3443,
+          "demand_share_pct": 8.20680285080924,
+          "mean_eta": 26.692128957304675,
+          "eta_vs_network_min": 0.38058985402243195,
+          "late_pct": 31.919837351147258,
+          "late_vs_network_pp": 1.9839567228250878,
+          "late_p": 0.008446814914044368,
+          "eta_p": 0.014419916937353306,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": true,
+          "above_benchmark": true,
+          "candidate_flag": true
+        },
+        {
+          "zone": 20,
+          "city": "BHP",
+          "orders": 478,
+          "demand_share_pct": 1.1393702476580936,
+          "mean_eta": 26.719665271966527,
+          "eta_vs_network_min": 0.40812616868428364,
+          "late_pct": 31.799163179916317,
+          "late_vs_network_pp": 1.8632825515941462,
+          "late_p": 0.3984491598824851,
+          "eta_p": 0.337495213284994,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": false,
+          "above_benchmark": true,
+          "candidate_flag": false
+        },
+        {
+          "zone": 14,
+          "city": "AGR",
+          "orders": 550,
+          "demand_share_pct": 1.3109908707363,
+          "mean_eta": 26.636363636363637,
+          "eta_vs_network_min": 0.3248245330813937,
+          "late_pct": 31.636363636363633,
+          "late_vs_network_pp": 1.7004830080414628,
+          "late_p": 0.4067160566791861,
+          "eta_p": 0.42060990995140907,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": false,
+          "above_benchmark": true,
+          "candidate_flag": false
+        },
+        {
+          "zone": 9,
+          "city": "LUDH",
+          "orders": 687,
+          "demand_share_pct": 1.6375467785378877,
+          "mean_eta": 26.234352256186316,
+          "eta_vs_network_min": -0.07718684709592694,
+          "late_pct": 31.58660844250364,
+          "late_vs_network_pp": 1.6507278141814687,
+          "late_p": 0.3625229980802127,
+          "eta_p": 0.8298243557328782,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": false,
+          "above_benchmark": false,
+          "candidate_flag": false
+        },
+        {
+          "zone": 18,
+          "city": "VAD",
+          "orders": 1576,
+          "demand_share_pct": 3.756584749600744,
+          "mean_eta": 26.66243654822335,
+          "eta_vs_network_min": 0.35089744494110775,
+          "late_pct": 30.83756345177665,
+          "late_vs_network_pp": 0.9016828234544789,
+          "late_p": 0.442082340373405,
+          "eta_p": 0.13378336150964512,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": false,
+          "above_benchmark": true,
+          "candidate_flag": false
+        },
+        {
+          "zone": 0,
+          "city": "HYD",
+          "orders": 3181,
+          "demand_share_pct": 7.582294472385765,
+          "mean_eta": 26.431310908519333,
+          "eta_vs_network_min": 0.11977180523708952,
+          "late_pct": 30.493555485696323,
+          "late_vs_network_pp": 0.5576748573741526,
+          "late_p": 0.4875164650209357,
+          "eta_p": 0.45883185051330033,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": true,
+          "above_benchmark": true,
+          "candidate_flag": true
+        },
+        {
+          "zone": 3,
+          "city": "RANCHI",
+          "orders": 2564,
+          "demand_share_pct": 6.111601077396133,
+          "mean_eta": 26.39352574102964,
+          "eta_vs_network_min": 0.08198663774739856,
+          "late_pct": 30.42121684867395,
+          "late_vs_network_pp": 0.4853362203517797,
+          "late_p": 0.5950397422282283,
+          "eta_p": 0.6526183845100623,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": true,
+          "above_benchmark": true,
+          "candidate_flag": true
+        },
+        {
+          "zone": 6,
+          "city": "PUNE",
+          "orders": 3132,
+          "demand_share_pct": 7.465497103901986,
+          "mean_eta": 26.344189016602808,
+          "eta_vs_network_min": 0.032649913320565105,
+          "late_pct": 29.629629629629626,
+          "late_vs_network_pp": -0.30625099869254413,
+          "late_p": 0.7123075111652897,
+          "eta_p": 0.8394123395121245,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": true,
+          "above_benchmark": false,
+          "candidate_flag": false
+        },
+        {
+          "zone": 8,
+          "city": "COIMB",
+          "orders": 3170,
+          "demand_share_pct": 7.556074654971039,
+          "mean_eta": 26.29242902208202,
+          "eta_vs_network_min": -0.019110081200224727,
+          "late_pct": 29.558359621451103,
+          "late_vs_network_pp": -0.37752100687106704,
+          "late_p": 0.6436913793244439,
+          "eta_p": 0.9050927223058681,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": true,
+          "above_benchmark": false,
+          "candidate_flag": false
+        },
+        {
+          "zone": 10,
+          "city": "CHEN",
+          "orders": 3145,
+          "demand_share_pct": 7.496484160846662,
+          "mean_eta": 26.35898251192369,
+          "eta_vs_network_min": 0.04744340864144547,
+          "late_pct": 29.443561208267088,
+          "late_vs_network_pp": -0.49231942005508245,
+          "late_p": 0.5441386551556033,
+          "eta_p": 0.7685443995860066,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": true,
+          "above_benchmark": false,
+          "candidate_flag": false
+        },
+        {
+          "zone": 12,
+          "city": "KOL",
+          "orders": 700,
+          "demand_share_pct": 1.6685338354825638,
+          "mean_eta": 26.364285714285714,
+          "eta_vs_network_min": 0.05274661100347089,
+          "late_pct": 29.428571428571427,
+          "late_vs_network_pp": -0.5073091997507433,
+          "late_p": 0.7995440067573435,
+          "eta_p": 0.880156146608849,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": false,
+          "above_benchmark": false,
+          "candidate_flag": false
+        },
+        {
+          "zone": 1,
+          "city": "INDO",
+          "orders": 3159,
+          "demand_share_pct": 7.529854837556313,
+          "mean_eta": 26.116176005064894,
+          "eta_vs_network_min": -0.19536309821734932,
+          "late_pct": 29.24976258309592,
+          "late_vs_network_pp": -0.6861180452262516,
+          "late_p": 0.39230374903428533,
+          "eta_p": 0.22404413658489547,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": true,
+          "above_benchmark": false,
+          "candidate_flag": false
+        },
+        {
+          "zone": 2,
+          "city": "BANG",
+          "orders": 3195,
+          "demand_share_pct": 7.615665149095416,
+          "mean_eta": 26.052895148669798,
+          "eta_vs_network_min": -0.25864395461244527,
+          "late_pct": 29.17057902973396,
+          "late_vs_network_pp": -0.7653015985882092,
+          "late_p": 0.3357412411950242,
+          "eta_p": 0.09752394687674619,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": true,
+          "above_benchmark": false,
+          "candidate_flag": false
+        },
+        {
+          "zone": 11,
+          "city": "GOA",
+          "orders": 609,
+          "demand_share_pct": 1.4516244368698306,
+          "mean_eta": 26.09688013136289,
+          "eta_vs_network_min": -0.21465897191935213,
+          "late_pct": 29.064039408866993,
+          "late_vs_network_pp": -0.8718412194551775,
+          "late_p": 0.6681628353852085,
+          "eta_p": 0.5563563614026441,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": false,
+          "above_benchmark": false,
+          "candidate_flag": false
+        },
+        {
+          "zone": 5,
+          "city": "SUR",
+          "orders": 3187,
+          "demand_share_pct": 7.596596190975616,
+          "mean_eta": 26.081581424537184,
+          "eta_vs_network_min": -0.229957678745059,
+          "late_pct": 29.0241606526514,
+          "late_vs_network_pp": -0.9117199756707706,
+          "late_p": 0.2505490893445365,
+          "eta_p": 0.14068380821454046,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": true,
+          "above_benchmark": false,
+          "candidate_flag": false
+        },
+        {
+          "zone": 15,
+          "city": "MUM",
+          "orders": 3173,
+          "demand_share_pct": 7.563225514265964,
+          "mean_eta": 26.048534509927514,
+          "eta_vs_network_min": -0.26300459335472937,
+          "late_pct": 28.994642294358652,
+          "late_vs_network_pp": -0.9412383339635184,
+          "late_p": 0.23643000225599337,
+          "eta_p": 0.09683652130200185,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": true,
+          "above_benchmark": false,
+          "candidate_flag": false
+        },
+        {
+          "zone": 7,
+          "city": "KNP",
+          "orders": 676,
+          "demand_share_pct": 1.6113269611231615,
+          "mean_eta": 26.164201183431953,
+          "eta_vs_network_min": -0.14733791985029043,
+          "late_pct": 28.994082840236686,
+          "late_vs_network_pp": -0.9417977880854842,
+          "late_p": 0.6194013569803978,
+          "eta_p": 0.6810814706920778,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": false,
+          "above_benchmark": false,
+          "candidate_flag": false
+        },
+        {
+          "zone": 13,
+          "city": "MYS",
+          "orders": 3012,
+          "demand_share_pct": 7.179462732104975,
+          "mean_eta": 26.02324037184595,
+          "eta_vs_network_min": -0.28829873143629214,
+          "late_pct": 28.71845949535193,
+          "late_vs_network_pp": -1.217421132970241,
+          "late_p": 0.1352752408300188,
+          "eta_p": 0.08174049895684825,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": true,
+          "above_benchmark": false,
+          "candidate_flag": false
+        },
+        {
+          "zone": 21,
+          "city": "KOC",
+          "orders": 701,
+          "demand_share_pct": 1.670917455247539,
+          "mean_eta": 26.345221112696148,
+          "eta_vs_network_min": 0.03368200941390498,
+          "late_pct": 28.673323823109843,
+          "late_vs_network_pp": -1.262556805212327,
+          "late_p": 0.4873711253520957,
+          "eta_p": 0.92368845765035,
+          "late_sig_bonferroni": false,
+          "eta_sig_bonferroni": false,
+          "high_demand": false,
+          "above_benchmark": false,
+          "candidate_flag": false
+        }
+      ],
+      "n_significant_late_bonferroni": 0,
+      "n_significant_eta_bonferroni": 0,
+      "candidates": [
+        "HYD",
+        "RANCHI",
+        "JAP"
+      ],
+      "candidates_significant": []
+    },
+    "threshold_point_test": {
+      "threshold": 0.2680600976092946,
+      "precision": 0.46683974510266696,
+      "recall": 0.8133223684210527,
+      "fpr": 0.37413050679032794
+    },
+    "class_balance": {
+      "train_late_pct": 30.09993804380034,
+      "test_late_pct": 28.713105076741442
+    }
+  },
+  "figures": [
+    "figures/22_explainability_grouped_importance.png",
+    "figures/23_eta_partial_dependence.png",
+    "figures/24_late_risk_deciles.png",
+    "figures/25_late_rate_ranges.png",
+    "figures/26_late_rate_by_hour.png",
+    "figures/27_weather_traffic_late_rate.png",
+    "figures/28_rider_attribute_profiles.png",
+    "figures/29_threshold_on_pr_roc.png"
+  ],
+  "report_word_counts": {
+    "business_report": 2123,
+    "solution_doc": 6084
+  }
+}

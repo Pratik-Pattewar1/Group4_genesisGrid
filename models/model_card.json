@@ -1,0 +1,125 @@
+{
+  "generated": "2026-10-31",
+  "split": {
+    "cut_date": "2022-03-30",
+    "train_rows": 37123,
+    "test_rows": 8470,
+    "train_dates": [
+      "2022-02-11",
+      "2022-03-29"
+    ],
+    "test_dates": [
+      "2022-03-30",
+      "2022-04-06"
+    ]
+  },
+  "eta_regressor": {
+    "model": "hist_gbm",
+    "params": {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15,
+      "l2_regularization": 1.0
+    },
+    "test": {
+      "MAE": 6.193974,
+      "RMSE": 7.733492,
+      "R2": 0.310092,
+      "n": 8470
+    },
+    "feature_set": "primary_no_month",
+    "features": [
+      "distance_km",
+      "restaurant_lat",
+      "restaurant_lon",
+      "order_hour",
+      "order_hour_sin",
+      "order_hour_cos",
+      "order_day_of_month",
+      "order_is_weekend",
+      "city_type",
+      "order_type",
+      "festival",
+      "order_time_band",
+      "order_day_of_week"
+    ],
+    "trained_on": [
+      "2022-02-11",
+      "2022-03-29"
+    ],
+    "train_rows": 37123,
+    "target": "time_taken_min",
+    "tier": "A (order placement)"
+  },
+  "late_classifiers": {
+    "30": {
+      "model": "hist_gbm",
+      "decision_threshold": 0.26806,
+      "test": {
+        "threshold": 0.26806,
+        "precision": 0.46684,
+        "recall": 0.813322,
+        "F1": 0.593192,
+        "ROC_AUC": 0.791096,
+        "PR_AUC": 0.608434,
+        "brier": 0.158697,
+        "prevalence": 0.287131,
+        "predicted_positive_rate": 0.500236,
+        "confusion": {
+          "tn": 3779,
+          "fp": 2259,
+          "fn": 454,
+          "tp": 1978
+        },
+        "n": 8470
+      }
+    },
+    "35": {
+      "model": "hist_gbm",
+      "decision_threshold": 0.216004,
+      "test": {
+        "threshold": 0.216004,
+        "precision": 0.39279,
+        "recall": 0.738179,
+        "F1": 0.512745,
+        "ROC_AUC": 0.831383,
+        "PR_AUC": 0.539861,
+        "brier": 0.10408,
+        "prevalence": 0.167296,
+        "predicted_positive_rate": 0.314404,
+        "confusion": {
+          "tn": 5436,
+          "fp": 1617,
+          "fn": 371,
+          "tp": 1046
+        },
+        "n": 8470
+      }
+    },
+    "40": {
+      "model": "hist_gbm",
+      "decision_threshold": 0.200967,
+      "test": {
+        "threshold": 0.200967,
+        "precision": 0.335703,
+        "recall": 0.576662,
+        "F1": 0.424363,
+        "ROC_AUC": 0.851948,
+        "PR_AUC": 0.472079,
+        "brier": 0.058626,
+        "prevalence": 0.087013,
+        "predicted_positive_rate": 0.149469,
+        "confusion": {
+          "tn": 6892,
+          "fp": 841,
+          "fn": 312,
+          "tp": 425
+        },
+        "n": 8470
+      }
+    }
+  },
+  "delivery_zones": {
+    "k": 22,
+    "silhouette": 0.94822
+  }
+}

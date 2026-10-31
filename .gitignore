@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual environment (preserved locally, never committed)
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Generated data & artifacts are INCLUDED in the submission: the Streamlit app needs models/ and
+# data/processed/feature_engineered_data.csv to run (all are reproducible from code; < 25 MB total).
+
+# Local-only files, not submission deliverables (kept on disk)
+CLAUDE.md
+Hackathon_Challenge_Guide.pdf
+
+# Logs and temporary files
+*.log
+*.tmp
+~$*
+
+# Raw data: data/raw/train.csv is NOT ignored by default so the project stays
+# reproducible. Uncomment the next line if the dataset licence forbids redistribution.
+# data/raw/
+
+# Streamlit / IDE / OS
+.streamlit/secrets.toml
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
