@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -45,6 +46,35 @@ PRESETS = {
 RISK_STYLE = {"Low": ("🟢", "success"), "Elevated": ("🟠", "warning"), "High": ("🔴", "error")}
 
 st.set_page_config(page_title="DeliveryIQ — Delivery Intelligence", page_icon="🛵", layout="wide")
+
+# Visual polish only (dark operations theme); no effect on inputs, predictions or text content.
+st.markdown("""<style>
+.block-container {padding-top: 1.6rem; max-width: 1400px;}
+.diq-hero {background: linear-gradient(135deg, #13263F 0%, #0B1A2E 100%); border: 1px solid #22395A;
+  border-left: 4px solid #F28C28; border-radius: 12px; padding: 18px 24px; margin-bottom: 14px;}
+.diq-hero h1 {margin: 0; padding: 0; font-size: 2.0rem; color: #FFFFFF; letter-spacing: .3px;}
+.diq-hero h1 span {color: #F28C28;}
+.diq-hero p {margin: 4px 0 0 0; color: #AAB6C7; font-size: .95rem;}
+.diq-chip {display: inline-block; margin: 10px 8px 0 0; padding: 2px 10px; border-radius: 999px;
+  border: 1px solid #2C4569; color: #C9D3E0; font-size: .78rem;}
+.stTabs [data-baseweb="tab-list"] {gap: 6px; border-bottom: 1px solid #22395A;}
+.stTabs [data-baseweb="tab"] {background: #13263F; border-radius: 8px 8px 0 0; padding: 8px 16px;}
+.stTabs [aria-selected="true"] {background: #1B3253; color: #F28C28;}
+div[data-testid="stMetric"] {background: #13263F; border: 1px solid #22395A; border-radius: 12px; padding: 14px 18px;}
+div[data-testid="stMetricLabel"] p {color: #AAB6C7; font-size: .82rem; text-transform: uppercase; letter-spacing: .6px;}
+div[data-testid="stMetricValue"] {color: #FFFFFF; font-weight: 600;}
+div[data-testid="stExpander"] details {border: 1px solid #22395A; border-radius: 10px; background: #102238;}
+h2, h3 {color: #FFFFFF;}
+.diq-result {border-radius: 12px; padding: 14px 20px; margin: 8px 0 12px 0; border: 1px solid #22395A; background: #13263F;}
+.diq-result b {color: #FFFFFF;} .diq-result .lvl {font-weight: 700; padding: 2px 10px; border-radius: 999px; margin-left: 8px;}
+</style>""", unsafe_allow_html=True)
+
+_REF = re.compile(r"\s*\((?:PDF[^)]*|§[^)]*|Solution Doc[^)]*)\)|,\s*§[\d.]+|^#+\s*\d+(?:\.\d+)*\s+", re.M)
+
+
+def _clean(text: str) -> str:
+    """Strip internal document references (e.g. 'PDF §7', '(§8)') from user-facing text."""
+    return _REF.sub(lambda m: "### " if m.group(0).lstrip().startswith("#") else "", text)
 
 
 # ----------------------------------------------------------------------------------- data
@@ -95,10 +125,10 @@ def _apply_preset() -> None:
 
 def _drivers_chart(drivers: list[dict]):
     d = pd.DataFrame(drivers).iloc[::-1]
-    ink = "#8a8984"                                   # mid-grey text: readable on light and dark themes
+    ink = "#AAB6C7"                                   # light slate text for the dark theme
     fig, ax = plt.subplots(figsize=(6.5, 3.0))
     fig.patch.set_alpha(0); ax.set_facecolor("none")  # transparent, so the app theme shows through
-    colors = ["#eb6834" if v > 0 else "#2a78d6" for v in d["eta_effect_min"]]
+    colors = ["#F28C28" if v > 0 else "#4C8DDB" for v in d["eta_effect_min"]]
     ax.barh(d["factor"], d["eta_effect_min"], color=colors, height=0.55)
     ax.axvline(0, color=ink, lw=1)
     ax.set_xlabel("minutes added (+) or saved (−) vs a typical order", color=ink)
@@ -118,9 +148,12 @@ card = models["card"]
 eta_test = card["eta_regressor"]["test"]
 late_test = card["late_classifiers"]["30"]["test"]
 
-st.title("🛵 DeliveryIQ — Delivery Intelligence")
-st.caption("AI-powered delivery ETA and late-order risk at the moment an order is placed · KLU + PATH3 ML-01 · "
-           "quick-commerce style demo on a food-delivery dataset (restaurants stand in for dark stores)")
+st.markdown(
+    "<div class='diq-hero'><h1>🛵 Delivery<span>IQ</span></h1>"
+    "<p>Delivery ETA and late-order risk at the moment an order is placed</p>"
+    "<span class='diq-chip'>Team Genesis Grid · Group 4</span><span class='diq-chip'>KLU + PATH3 · ML-01</span>"
+    "<span class='diq-chip'>Food-delivery data · restaurants stand in for dark stores</span></div>",
+    unsafe_allow_html=True)
 
 with st.sidebar:
     st.header("About this demo")
@@ -145,7 +178,7 @@ with tab_pred:
                  help="Fills the form with a realistic example; you can still edit every field.")
     stores = ref["stores"]
     if True:                                                  # plain widgets (a form would hide conditional fields)
-        c1, c2, c3 = st.columns(3)
+        c1, c2, c3 = (col.container(border=True) for col in st.columns(3))
         with c1:
             st.subheader("1 · Store")
             codes = sorted(stores["city_code"].unique())
@@ -200,7 +233,12 @@ with tab_pred:
         else:
             st.session_state["last_prediction"] = pred
             icon, kind = RISK_STYLE[pred.risk_level]
-            st.markdown(f"### ETA: **{pred.eta_min:.0f} min** · **{100 * pred.late_probability:.0f}% risk of delay** {icon}")
+            lvl_col = {"Low": "#2E9E6B", "Elevated": "#F28C28", "High": "#E5484D"}[pred.risk_level]
+            st.markdown(
+                f"<div class='diq-result' style='border-left:4px solid {lvl_col}'>{icon} Estimated delivery "
+                f"<b>{pred.eta_min:.0f} min</b> · delay risk score <b>{100 * pred.late_probability:.0f}%</b>"
+                f"<span class='lvl' style='background:{lvl_col}22;color:{lvl_col}'>{pred.risk_level.upper()}</span></div>",
+                unsafe_allow_html=True)
             m1, m2, m3, m4 = st.columns(4)
             m1.metric("Predicted delivery time", f"{pred.eta_min:.1f} min",
                       help=f"Typical error on unseen days: ±{eta_test['MAE']:.1f} min (test MAE).")
@@ -237,17 +275,18 @@ with tab_pred:
 with tab_ins:
     st.header("Three evidence-backed findings")
     for f in three_findings(s5):
-        st.markdown(f"- {f}")
+        st.markdown(f"- {_clean(f)}")
     st.header("Three prioritised recommendations")
     st.caption("[Observed] = measured in this project · [Scenario] = hypothetical estimate, not a measured result.")
     for i, r in enumerate(recommendations(s5), 1):
-        with st.expander(f"Priority {i} — {r['title']}", expanded=(i == 1)):
-            st.markdown(f"**Problem:** {r['problem']}")
-            st.markdown("**Evidence:**\n" + "\n".join(f"- {e}" for e in r["evidence"]))
-            st.markdown("**Action:**\n" + "\n".join(f"- {a}" for a in r["action"]))
-            st.markdown("**Expected benefit:**\n" + "\n".join(f"- {b}" for b in r["benefit"]))
-            st.markdown("**KPIs:** " + "; ".join(r["kpis"]))
-            st.markdown("**Risks:**\n" + "\n".join(f"- {x}" for x in r["risks"]))
+        with st.expander(f"Priority {i} — {_clean(r['title'])}", expanded=(i == 1)):
+            st.markdown(_clean(f"**Problem:** {r['problem']}"))
+            ev, ac = st.columns(2)
+            ev.markdown(_clean("**Evidence**\n" + "\n".join(f"- {e}" for e in r["evidence"])))
+            ac.markdown(_clean("**Action**\n" + "\n".join(f"- {a}" for a in r["action"])))
+            st.markdown(_clean("**Expected benefit**\n" + "\n".join(f"- {b}" for b in r["benefit"])))
+            st.markdown(_clean("**KPIs:** " + "; ".join(r["kpis"])))
+            st.markdown(_clean("**Risks**\n" + "\n".join(f"- {x}" for x in r["risks"])))
     c1, c2 = st.columns(2)
     with c1:
         _figure("26_late_rate_by_hour.png", "Late rate by hour of order — the 19:00–21:59 surge window")
@@ -267,7 +306,7 @@ with tab_perf:
     k2.metric("ETA R²", f"{eta_test['R2']:.3f}")
     k3.metric("Late-risk ROC-AUC", f"{late_test['ROC_AUC']:.3f}")
     k4.metric("Late-risk recall / precision", f"{late_test['recall']:.2f} / {late_test['precision']:.2f}")
-    st.markdown("\n".join(model_selection_block(s5)))
+    st.markdown(_clean("\n".join(model_selection_block(s5))))
     sens = pd.DataFrame([{"Benchmark": f"> {k} min", "Late share": v["test"]["prevalence"], "Threshold": v["decision_threshold"],
                           "Precision": v["test"]["precision"], "Recall": v["test"]["recall"], "F1": v["test"]["F1"],
                           "ROC-AUC": v["test"]["ROC_AUC"], "PR-AUC": v["test"]["PR_AUC"]} for k, v in card["late_classifiers"].items()])

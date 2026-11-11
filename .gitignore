@@ -27,6 +27,17 @@ Hackathon_Challenge_Guide.pdf
 # reproducible. Uncomment the next line if the dataset licence forbids redistribution.
 # data/raw/
 
+# Secrets / credentials (never committed)
+.env
+.env.*
+*.pem
+*.key
+
+# Caches
+.cache/
+.mypy_cache/
+.ruff_cache/
+
 # Streamlit / IDE / OS
 .streamlit/secrets.toml
 .vscode/
