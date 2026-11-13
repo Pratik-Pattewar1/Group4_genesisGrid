@@ -15,7 +15,10 @@ venv/
 # data/processed/feature_engineered_data.csv to run (all are reproducible from code; < 25 MB total).
 
 # Local-only files, not submission deliverables (kept on disk)
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 Hackathon_Challenge_Guide.pdf
 
 # Logs and temporary files
